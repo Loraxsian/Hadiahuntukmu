@@ -1,0 +1,15 @@
+{
+  "particles": {
+    "number": { "value": 80 },
+    "color": { "value": "#ffffff" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.8, "random": true },
+    "size": { "value": 6, "random": true },
+    "move": {
+      "enable": true,
+      "speed": 1,
+      "direction": "bottom",
+      "out_mode": "out"
+    }
+  }
+}

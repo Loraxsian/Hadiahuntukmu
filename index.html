@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun Laura!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/particle-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Partikel -->
+  <div id="particles-js"></div>
+
+  <!-- Intro -->
+  <section class="intro">
+    <div id="introText"></div>
+    <div id="countdown" class="countdown"></div>
+  </section>
+
+  <!-- Isi -->
+  <section class="main" id="mainContent">
+    <h2 class="judul-utama">🎂 Selamat Ulang Tahun, Laura! 🍰</h2>
+    <p class="subjudul">Teruslah bersinar, Laura! ✨✨</p>
+
+    <div class="galeri-container">
+      <h3 class="judul-box">Galeri</h3>
+      <div class="galeri">
+        <img src="galeri/laura1.jpeg" alt="Laura 1">
+        <img src="galeri/laura2.png" alt="Laura 2">
+        <img src="galeri/laura3.jpg" alt="Laura 3">
+        <img src="galeri/laura4.jpeg" alt="Laura 4">
+        <img src="galeri/laura5.jpeg" alt="Laura 5">
+        <img src="galeri/laura6.jpeg" alt="Laura 6">
+        <img src="galeri/laura7.jpeg" alt="Laura 7">
+        <img src="galeri/laura8.jpeg" alt="Laura 8">
+        <img src="galeri/laura9.jpeg" alt="Laura 9">
+        <img src="galeri/laura10.jpeg" alt="Laura 10">
+      </div>
+    </div>
+
+    <div class="surat-container">
+      <div class="surat-box">
+        <button id="bacaSurat">Buka Surat</button>
+        <div id="surat" class="hidden">
+          <div class="isi-surat">
+            <p><strong>Untuk Prita Laura Sianturi,</strong><br><br>
+            Hai Laura!<br><br>
+            Selamat ulang tahun yang ke-18! 🎉✨<br><br>
+            Akhirnya kamu sampai juga di usia yang katanya jadi awal dari kedewasaan. Semoga di usia yang baru ini, semua impian dan harapanmu mulai menemukan jalannya satu per satu. Kamu layak untuk bahagia, sukses, dan dicintai dengan tulus.<br><br>
+            Aku tahu kamu orang yang kuat, cerdas, dan punya hati yang luar biasa. Dan kalau suatu saat kamu merasa lelah, bingung, atau cuma butuh teman untuk cerita—jangan ragu cari aku, ya. Aku akan selalu berusaha jadi teman yang siap bantu, dengerin, dan ada buat kamu kapan pun kamu butuh. Serius, kamu nggak sendiri.<br><br>
+            Terima kasih juga, Prita, karena udah jadi teman yang berarti dalam hidupku. Kehadiranmu bikin hari-hariku lebih berwarna. Aku bersyukur bisa kenal kamu dan bisa jalan bareng di fase hidup ini.<br><br>
+            Selamat datang di usia 18—semoga kamu menjalani hari-hari ke depan dengan semangat baru, langkah yang mantap, dan senyuman yang nggak pernah pudar.<br><br>
+            Dari hati yang tulus,<br>
+            [Andrian - temanmu]
+            </p>
+            <button id="tutupSurat">Tutup Surat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hadiah">
+      <a href="hadiah.html" class="btn-hadiah">Aku harap kamu menyukainya<br>- Buka Hadiah 🎁 -</a>
+    </div>
+
+    <div class="hadiah-content hidden">
+      <p class="ucapan-hadiah">Ini hadiah dariku untukmu Laura, mungkin tak seberapa tapi aku harap kamu menyukainya 💫</p>
+      <img src="img/qris.png" alt="QRIS Hadiah" class="qris-img">
+      <canvas id="fireworksCanvas"></canvas>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script src="js/particles.min.js"></script>
+  <script src="js/particle-script.js"></script>
+  <script src="js/fireworks.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f2027;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.intro {
+  text-align: center;
+  padding-top: 150px;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+  min-height: 100vh;
+}
+
+.countdown {
+  font-size: 4rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.main {
+  padding: 20px;
+  display: none;
+}
+
+.judul-utama {
+  text-align: center;
+  font-size: 2.7rem;
+  color: pink;
+  margin-bottom: 0;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6);
+}
+
+
+.subjudul {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.galeri-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.judul-box {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+.galeri img {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+
+.surat-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.surat-box {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+#bacaSurat, #tutupSurat, #bukaHadiah {
+  background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+#bacaSurat, #tutupSurat, #bukaHadiah {
+  background: linear-gradient(135deg, #ff4081, #ff80ab);
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
+  border: 2px solid #ff80ab;
+}
+
+#bacaSurat:hover, #tutupSurat:hover, #bukaHadiah:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff80ab, #ff4081);
+  box-shadow: 0 6px 18px rgba(255, 64, 129, 0.6);
+}
+
+.hidden {
+  display: none;
+}
+
+.hadiah {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hadiah-content {
+  text-align: center;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.hadiah-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ucapan-hadiah {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.qris-img {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+
+canvas#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.btn-hadiah {
+  display: inline-block;
+  text-align: center;
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-top: 40px;
+  box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-hadiah:hover {
+  background-color: #e91e63;
+  transform: scale(1.05);
+}
