@@ -47,6 +47,7 @@ const surat = document.getElementById("surat");
 
 btnBaca.addEventListener("click", () => {
   surat.classList.remove("hidden");
+  // ❌ Jangan munculkan side-image di sini
 });
 
 btnTutup.addEventListener("click", () => {
@@ -56,13 +57,17 @@ btnTutup.addEventListener("click", () => {
 // Hadiah
 const bukaHadiah = document.getElementById("bukaHadiah");
 const hadiahContent = document.querySelector(".hadiah-content");
+const sideImages = document.getElementById("sideImages");
 
 bukaHadiah.addEventListener("click", () => {
-hadiahContent.classList.remove("hidden");
-setTimeout(() => {
-  hadiahContent.classList.add("show");
-  hadiahContent.style.display = "block"; // Tambahan ini penting
-}, 10);
+  hadiahContent.classList.remove("hidden");
+  setTimeout(() => {
+    hadiahContent.classList.add("show");
+    hadiahContent.style.display = "block";
+  }, 10);
+
+  // ✅ Munculkan side-image hanya di bagian ketiga (QRIS)
+  sideImages.classList.remove("hidden");
 
   if (typeof startFireworks === "function") {
     startFireworks();

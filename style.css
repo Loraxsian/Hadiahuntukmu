@@ -1,184 +1,231 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: #0f2027;
-  color: white;
+  background-color: #0f0f0f;
+  color: #fff;
   overflow-x: hidden;
-  position: relative;
 }
 
 #particles-js {
   position: fixed;
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  height: 300vh;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 
-.intro {
-  text-align: center;
-  padding-top: 150px;
-  font-family: 'Pacifico', cursive;
-  font-size: 1.5rem;
-  min-height: 100vh;
+/* Foto samping */
+.side-photo {
+  position: fixed;
+  bottom: 0;
+  z-index: 3;
+  opacity: 0.95;
 }
 
-.countdown {
-  font-size: 4rem;
-  margin-top: 20px;
-  font-weight: bold;
+/* Foto kiri */
+.left-photo {
+  left: 0;
+  max-height: 150vh;
+  transform: scale(1.8); /* jangan ubah ukurannya */
 }
 
-.main {
-  padding: 20px;
-  display: none;
-}
-
-.judul-utama {
-  text-align: center;
-  font-size: 2.7rem;
-  color: pink;
-  margin-bottom: 0;
-  font-family: 'Pacifico', cursive;
-  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6);
-}
-
-
-.subjudul {
-  text-align: center;
-  margin-top: 5px;
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.galeri-container {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-}
-
-.judul-box {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.galeri {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 10px;
-}
-
-.galeri img {
-  width: 100%;
-  border-radius: 12px;
-  border: 2px solid white;
-}
-
-.surat-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.surat-box {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
-  color: black;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-}
-
-#bacaSurat, #tutupSurat, #bukaHadiah {
-  background-color: #ff4081;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background 0.3s;
-}
-
-#bacaSurat, #tutupSurat, #bukaHadiah {
-  background: linear-gradient(135deg, #ff4081, #ff80ab);
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
-  border: 2px solid #ff80ab;
-}
-
-#bacaSurat:hover, #tutupSurat:hover, #bukaHadiah:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #ff80ab, #ff4081);
-  box-shadow: 0 6px 18px rgba(255, 64, 129, 0.6);
+/* Foto kanan */
+.right-photo {
+  right: 0;
+  bottom: 0;
+  max-height: 70vh !important;
+  transform: scale(1) !important;
+  z-index: 3;
+  opacity: 0.95;
 }
 
 .hidden {
   display: none;
 }
 
-.hadiah {
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 50px;
 }
 
-.hadiah-content {
+#introText {
+  font-size: 2.5rem;
+  font-family: 'Pacifico', cursive;
+  color: #ffb6c1;
+}
+
+.countdown {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #ffccff;
+}
+
+.main {
+  padding: 60px 20px;
   text-align: center;
-  margin-top: 30px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
 }
 
-.hadiah-content.show {
-  opacity: 1;
-  transform: translateY(0);
+.judul-utama {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: #ffb6c1;
 }
 
-.ucapan-hadiah {
-  font-size: 1.3rem;
-  color: #fff;
+.subjudul {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.galeri-container {
+  margin-top: 40px;
+}
+
+.judul-box {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  color: #ffffff; /* DIUBAH KE PUTIH */
   margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
-.qris-img {
-  display: block;
-  margin: 0 auto;
-  width: 250px;
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.galeri img {
+  width: 80%; /* Dikecilin dari 90% jadi 80% */
+  height: auto;
   border-radius: 12px;
-  border: 2px solid white;
+  object-fit: cover;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
-canvas#fireworksCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.surat-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.surat-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.surat-box button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.isi-surat {
+  margin-top: 20px;
+  text-align: left;
+  color: #fff;
+}
+
+.hadiah {
+  margin-top: 60px;
+  text-align: center;
 }
 
 .btn-hadiah {
   display: inline-block;
-  text-align: center;
-  background-color: #ff4081;
+  background-color: #00c2cb;
   color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 10px;
   text-decoration: none;
-  margin-top: 40px;
-  box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
-  transition: transform 0.2s ease, background 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.btn-hadiah:hover {
-  background-color: #e91e63;
-  transform: scale(1.05);
+.hadiah-content {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.qris-img {
+  width: 200px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+#fireworksCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+.galeri-box {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  max-width: 1000px;
+  margin: 20px auto;
+  transition: 0.3s ease;
+}
+
+.galeri-box:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .left-photo {
+    max-height: 50vh;
+    transform: translateY(-50%) scale(1);
+    left: 10px; /* Posisi tetap di sisi kiri */
+    right: auto;
+  }
+
+  .right-photo {
+    max-height: 40vh !important;
+    transform: translateY(-50%) scale(1) !important;
+    right: 10px; /* Posisi tetap di sisi kanan */
+    left: auto;
+  }
+}
+
+.ucapan-box {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  max-width: 1000px;
+  margin: 40px auto;
+  transition: 0.3s ease;
+}
+
+.ucapan-box:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.ucapan-birthday {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
 }

@@ -9,36 +9,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Partikel -->
+  <!-- Efek Salju -->
   <div id="particles-js"></div>
 
-  <!-- Intro -->
-  <section class="intro">
-    <div id="introText"></div>
+  <!-- Bagian 1: Intro -->
+  <section class="intro" id="introSection">
+    <div id="introText" class="judul-utama"></div>
     <div id="countdown" class="countdown"></div>
   </section>
 
-  <!-- Isi -->
-  <section class="main" id="mainContent">
+  <!-- Bagian 2 & 3 -->
+  <section class="main hidden" id="mainContent">
+    <!-- Bagian 2: Galeri -->
     <h2 class="judul-utama">🎂 Selamat Ulang Tahun, Laura! 🍰</h2>
     <p class="subjudul">Teruslah bersinar, Laura! ✨✨</p>
 
+    <div class="ucapan-box">
+      <p class="ucapan-birthday">
+        Happy Birthday, Lauraaa!<br>
+        Hehe… maybe this feels a bit over the top or strange to do,<br>
+        but the most important thing I want to say right now is:<br>
+        <strong>Happy 18th Birthday!</strong><br><br>
+        I hope you always stay healthy, live in joy, and keep smiling wherever and whenever you are.<br>
+        That smile of yours is one of the most special things you have—so never lose it.<br><br>
+        Once again, happy 18th birthday, Laura. 🌸
+      </p>
+    </div>
+
     <div class="galeri-container">
       <h3 class="judul-box">Galeri</h3>
-      <div class="galeri">
-        <img src="galeri/laura1.jpeg" alt="Laura 1">
-        <img src="galeri/laura2.png" alt="Laura 2">
-        <img src="galeri/laura3.jpg" alt="Laura 3">
-        <img src="galeri/laura4.jpeg" alt="Laura 4">
-        <img src="galeri/laura5.jpeg" alt="Laura 5">
-        <img src="galeri/laura6.jpeg" alt="Laura 6">
-        <img src="galeri/laura7.jpeg" alt="Laura 7">
-        <img src="galeri/laura8.jpeg" alt="Laura 8">
-        <img src="galeri/laura9.jpeg" alt="Laura 9">
-        <img src="galeri/laura10.jpeg" alt="Laura 10">
+      <div class="galeri-box">
+        <div class="galeri">
+          <img src="galeri/laura_cutealone.jpg" alt="Laura Cute Alone">
+          <img src="galeri/laura_cute_cool.jpg" alt="Laura Cute Cool">
+          <img src="galeri/laura_glassylook.jpg" alt="Laura Glassy Look">
+          <img src="galeri/laura_group_01.jpg" alt="Laura Group 01">
+          <img src="galeri/laura_group_02.jpg" alt="Laura Group 02">
+          <img src="galeri/laura_group_03.jpg" alt="Laura Group 03">
+          <img src="galeri/laura_group_04.jpg" alt="Laura Group 04">
+          <img src="galeri/laura_puppyface.jpg" alt="Laura Puppyface">
+          <img src="galeri/sleepylaura.jpg" alt="Sleepy Laura">
+          <img src="galeri/laura_chubbyvlog.png" alt="Laura Chubby Vlog">
+        </div>
       </div>
     </div>
 
+    <!-- Bagian 3: Surat dan Hadiah -->
     <div class="surat-container">
       <div class="surat-box">
         <button id="bacaSurat">Buka Surat</button>
@@ -47,13 +63,12 @@
             <p><strong>Untuk Prita Laura Sianturi,</strong><br><br>
             Hai Laura!<br><br>
             Selamat ulang tahun yang ke-18! 🎉✨<br><br>
-            Akhirnya kamu sampai juga di usia yang katanya jadi awal dari kedewasaan. Semoga di usia yang baru ini, semua impian dan harapanmu mulai menemukan jalannya satu per satu. Kamu layak untuk bahagia, sukses, dan dicintai dengan tulus.<br><br>
-            Aku tahu kamu orang yang kuat, cerdas, dan punya hati yang luar biasa. Dan kalau suatu saat kamu merasa lelah, bingung, atau cuma butuh teman untuk cerita—jangan ragu cari aku, ya. Aku akan selalu berusaha jadi teman yang siap bantu, dengerin, dan ada buat kamu kapan pun kamu butuh. Serius, kamu nggak sendiri.<br><br>
-            Terima kasih juga, Prita, karena udah jadi teman yang berarti dalam hidupku. Kehadiranmu bikin hari-hariku lebih berwarna. Aku bersyukur bisa kenal kamu dan bisa jalan bareng di fase hidup ini.<br><br>
-            Selamat datang di usia 18—semoga kamu menjalani hari-hari ke depan dengan semangat baru, langkah yang mantap, dan senyuman yang nggak pernah pudar.<br><br>
+            Nggak banyak yang bisa aku kasih hari ini, tapi aku pengin kamu tahu: aku senang banget bisa dekat lagi sama kamu. Rasanya tenang aja gitu, bisa saling sapa lagi meskipun gak sering dan gak bareng lagi seperti dulu.<br><br>
+            Kalau suatu saat kamu lagi capek, bingung, atau cuma pengin cerita tanpa mikir panjang, jangan ragu buat cari aku.Aku mungkin nggak selalu punya jawaban, tapi aku bakal dengerin dan ada buat kamu. Serius.<br><br>
+            Kamu itu orang yang kuat, tulus, dan punya banyak hal baik dalam diri kamu. Aku harap di umur ini, kamu bisa terus jalan dengan tenang,lebih yakin sama diri sendiri, dan tetap bawa senyum yang kamu punya itu ke mana pun kamu pergi.<br><br>
+            Aku peduli sama kamu. Bukan karena harus, tapi karena memang kamu berarti.<br><br>
             Dari hati yang tulus,<br>
-            [Andrian - temanmu]
-            </p>
+            [Andrian - temanmu]</p>
             <button id="tutupSurat">Tutup Surat</button>
           </div>
         </div>
@@ -64,17 +79,68 @@
       <a href="hadiah.html" class="btn-hadiah">Aku harap kamu menyukainya<br>- Buka Hadiah 🎁 -</a>
     </div>
 
-    <div class="hadiah-content hidden">
-      <p class="ucapan-hadiah">Ini hadiah dariku untukmu Laura, mungkin tak seberapa tapi aku harap kamu menyukainya 💫</p>
-      <img src="img/qris.png" alt="QRIS Hadiah" class="qris-img">
-      <canvas id="fireworksCanvas"></canvas>
-    </div>
-  </section>
-
   <!-- Script -->
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
-  <script src="script.js"></script>
+  <script>
+    const introText = document.getElementById("introText");
+    const countdown = document.getElementById("countdown");
+    const mainSection = document.getElementById("mainContent");
+
+    const kalimatPertama = "Hai Laura! Aku ada sesuatu untukmu....";
+    const kalimatKedua = "Kita mulai dalam";
+    let i = 0;
+
+    function ketik(text, callback) {
+      if (i < text.length) {
+        introText.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(() => ketik(text, callback), 50);
+      } else {
+        if (callback) setTimeout(callback, 1000);
+      }
+    }
+
+    function hapus(callback) {
+      if (introText.innerHTML.length > 0) {
+        introText.innerHTML = introText.innerHTML.slice(0, -1);
+        setTimeout(() => hapus(callback), 30);
+      } else {
+        if (callback) setTimeout(callback, 300);
+      }
+    }
+
+    function mulaiHitungMundur(angka) {
+      if (angka > 0) {
+        countdown.innerText = angka;
+        setTimeout(() => mulaiHitungMundur(angka - 1), 1000);
+      } else {
+        document.getElementById("introSection").style.display = "none";
+        mainSection.classList.remove("hidden");
+      }
+    }
+
+    window.onload = () => {
+      i = 0;
+      ketik(kalimatPertama, () => {
+        i = 0;
+        hapus(() => {
+          ketik(kalimatKedua, () => {
+            mulaiHitungMundur(5);
+          });
+        });
+      });
+    };
+
+    // Tombol buka & tutup surat
+    document.getElementById("bacaSurat").onclick = () => {
+      document.getElementById("surat").classList.remove("hidden");
+    };
+    document.getElementById("tutupSurat").onclick = () => {
+      document.getElementById("surat").classList.add("hidden");
+    };
+
+  </script>
 </body>
 </html>
