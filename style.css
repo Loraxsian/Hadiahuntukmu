@@ -16,7 +16,7 @@ body {
   z-index: -1;
 }
 
-/* Foto samping */
+/* ---------- FOTO KIRI & KANAN (PC) ---------- */
 .side-photo {
   position: fixed;
   bottom: 0;
@@ -24,23 +24,32 @@ body {
   opacity: 0.95;
 }
 
-/* Foto kiri */
 .left-photo {
   left: 0;
   max-height: 150vh;
-  transform: scale(1.8); /* jangan ubah ukurannya */
+  transform: scale(1.8); /* Jangan diubah ukurannya */
 }
 
-/* Foto kanan */
 .right-photo {
   right: 0;
   bottom: 0;
   max-height: 70vh !important;
   transform: scale(1) !important;
-  z-index: 3;
-  opacity: 0.95;
 }
 
+/* ---------- QRIS UTAMA ---------- */
+.qris-img {
+  width: 200px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* ---------- QRIS & FOTO KHUSUS HP ---------- */
+.qris-wrapper {
+  display: none;
+}
+
+/* ---------- BAGIAN LAIN ---------- */
 .hidden {
   display: none;
 }
@@ -89,7 +98,7 @@ body {
 .judul-box {
   font-family: 'Pacifico', cursive;
   font-size: 2.2rem;
-  color: #ffffff; /* DIUBAH KE PUTIH */
+  color: #ffffff;
   margin-bottom: 20px;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
@@ -103,7 +112,7 @@ body {
 }
 
 .galeri img {
-  width: 80%; /* Dikecilin dari 90% jadi 80% */
+  width: 80%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
@@ -163,12 +172,6 @@ body {
   text-align: center;
 }
 
-.qris-img {
-  width: 200px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
 #fireworksCanvas {
   position: absolute;
   top: 0;
@@ -178,6 +181,7 @@ body {
   pointer-events: none;
   z-index: 2;
 }
+
 .galeri-box {
   background: rgba(255, 255, 255, 0.07);
   padding: 20px;
@@ -192,27 +196,6 @@ body {
 .galeri-box:hover {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
-
-@media screen and (max-width: 768px) {
-  .left-photo {
-    max-height: 50vh;
-    transform: scale(1);
-    position: fixed;
-    bottom: 0;
-    left: 10px;
-    right: auto;
-  }
-
-  .right-photo {
-    max-height: 40vh !important;
-    transform: scale(1) !important;
-    position: fixed;
-    bottom: 0;
-    right: 10px;
-    left: auto;
-  }
-}
-
 
 .ucapan-box {
   background: rgba(255, 255, 255, 0.07);
@@ -233,4 +216,32 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: #fff;
+}
+
+/* -------------------- MOBILE RESPONSIVE -------------------- */
+@media screen and (max-width: 768px) {
+  /* QRIS + foto samping di HP */
+  .qris-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .side-photo-mobile {
+    display: block;
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .side-photo {
+    display: none !important; /* Sembunyikan versi PC */
+  }
+
+  .qris-img {
+    width: 120px;
+  }
 }
