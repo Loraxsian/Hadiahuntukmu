@@ -218,9 +218,16 @@ body {
   color: #fff;
 }
 
-/* -------------------- MOBILE RESPONSIVE -------------------- */
+/* -------------------- RESPONSIVE UNTUK HP -------------------- */
 @media screen and (max-width: 768px) {
-  /* QRIS + foto samping di HP */
+  .qris-img {
+    width: 120px;
+  }
+
+  .side-photo {
+    display: none !important; /* Sembunyikan versi PC */
+  }
+
   .qris-wrapper {
     display: flex;
     justify-content: center;
@@ -232,16 +239,9 @@ body {
 
   .side-photo-mobile {
     display: block;
-    max-height: 100px;
-    width: auto;
+    max-width: 80px;
+    height: auto;
     object-fit: contain;
   }
-
-  .side-photo {
-    display: none !important; /* Sembunyikan versi PC */
-  }
-
-  .qris-img {
-    width: 120px;
-  }
 }
+
