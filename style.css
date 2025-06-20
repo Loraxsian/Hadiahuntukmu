@@ -219,30 +219,28 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .qris-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+  .side-photo {
+    display: none !important;
   }
 
   .foto-kiri {
     position: absolute;
-    left: 7px;
+    left: 7px !important;
     bottom: 0;
-    max-width: 9px !important;
+    max-width: 7px !important;
+    display: block !important;
   }
 
   .foto-kanan {
     position: absolute;
-    right: 9px;
+    right: 9px !important;
     bottom: 0;
-    max-width: 7px !important;
+    max-width: 5px !important;
+    display: block !important;
   }
 
   .qris-img {
-    width: 150px;
+    width: 150px !important;
     z-index: 2;
   }
 }
