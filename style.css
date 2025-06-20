@@ -220,35 +220,30 @@ body {
 
 @media screen and (max-width: 768px) {
   .qris-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     margin-top: 20px;
-    flex-wrap: nowrap;
-  }
-
-  .qris-img {
-    width: 130px; /* Besarin QRIS */
-  }
-
-  .side-photo {
-    display: none !important; /* Sembunyikan versi desktop */
-  }
-
-  .side-photo-mobile {
-    display: block;
-    height: auto;
-    object-fit: contain;
   }
 
   .foto-kiri {
-    max-width: 180px;
-    margin-left: 9px;
+    position: absolute;
+    left: 07;
+    bottom: 0;
+    max-width: 90px;
   }
 
   .foto-kanan {
-    max-width: 75px;
-    margin-right: 10px;
+    position: absolute;
+    right: 9;
+    bottom: 0;
+    max-width: 80px;
+  }
+
+  .qris-img {
+    width: 150px;
+    z-index: 2;
   }
 }
+
