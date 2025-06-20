@@ -14,13 +14,12 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
-    <!-- ✅ Tampilan HP -->
+    <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
     <div class="qris-wrapper">
-      <img src="galeri/laura_leftstyle.png" alt="Foto Kiri" class="side-photo-mobile">
-      <img src="img/qris.png" alt="QRIS Hadiah" class="qris-img">
-      <img src="galeri/laura_rightstyle-preview.png" alt="Foto Kanan" class="side-photo-mobile">
+      <img src="galeri/laura_leftstyle.png" class="side-photo-mobile foto-kiri" alt="Laura Kiri">
+      <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
+      <img src="galeri/laura_rightstyle-preview.png" class="side-photo-mobile foto-kanan" alt="Laura Kanan">
     </div>
-
 
     <!-- Tombol Aksi -->
     <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
@@ -35,10 +34,11 @@
 
   <canvas id="fireworksCanvas"></canvas>
 
-  <!-- Versi PC (floating bawah) -->
+  <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
 
+  <!-- Script -->
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
