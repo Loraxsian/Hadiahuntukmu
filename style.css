@@ -227,30 +227,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0px; /* Supaya mepet */
+    gap: 10px;
     margin-top: 20px;
-    position: relative;
-    height: auto;
+    flex-wrap: nowrap;
   }
 
   .foto-kiri,
   .foto-kanan {
-    height: 160px; /* Ukuran disamakan dengan QRIS */
+    height: 120px;
     width: auto;
-    z-index: 1;
-  }
-
-  .foto-kiri {
-    margin-right: 8px;
-  }
-
-  .foto-kanan {
-    margin-left: 8px;
   }
 
   .qris-img {
-    width: 160px;
-    height: 160px;
-    z-index: 2;
+    height: 120px;
+    width: auto;
   }
 }
