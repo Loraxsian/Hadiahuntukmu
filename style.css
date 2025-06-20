@@ -229,14 +229,14 @@ body {
 
   .foto-kiri {
     position: absolute;
-    left: 07;
+    left: 7px;
     bottom: 0;
     max-width: 50px;
   }
 
   .foto-kanan {
     position: absolute;
-    right: 9;
+    right: 9px;
     bottom: 0;
     max-width: 40px;
   }
