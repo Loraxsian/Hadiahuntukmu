@@ -226,33 +226,31 @@ body {
   .qris-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    gap: 12px;
+    align-items: center;
+    gap: 0px; /* Supaya mepet */
     margin-top: 20px;
     position: relative;
-    height: 100px;
+    height: auto;
+  }
+
+  .foto-kiri,
+  .foto-kanan {
+    height: 160px; /* Ukuran disamakan dengan QRIS */
+    width: auto;
+    z-index: 1;
   }
 
   .foto-kiri {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 20px !important; /* geser dari tepi kiri */
-    height: 65px !important; /* ubah ukuran */
-    width: auto !important;
-    z-index: 1 !important;
+    margin-right: 8px;
   }
 
   .foto-kanan {
-    position: absolute !important;
-    bottom: 0 !important;
-    right: 20px !important; /* geser dari tepi kanan */
-    height: 65px !important;
-    width: auto !important;
-    z-index: 1 !important;
+    margin-left: 8px;
   }
 
   .qris-img {
-    width: 160px !important;
-    z-index: 2 !important;
+    width: 160px;
+    height: 160px;
+    z-index: 2;
   }
 }
