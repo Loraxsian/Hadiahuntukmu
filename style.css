@@ -231,14 +231,14 @@ body {
     position: absolute;
     left: 07;
     bottom: 0;
-    max-width: 90px;
+    max-width: 50px;
   }
 
   .foto-kanan {
     position: absolute;
     right: 9;
     bottom: 0;
-    max-width: 80px;
+    max-width: 40px;
   }
 
   .qris-img {
