@@ -223,25 +223,26 @@ body {
     display: none !important;
   }
 
+  .qris-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 30px;
+    gap: 12px;
+  }
+
   .foto-kiri {
-    position: absolute;
-    left: 7px !important;
-    bottom: 0;
-    max-width: 7px !important;
-    display: block !important;
+    max-height: 60px;
+    margin-left: -8px;
   }
 
   .foto-kanan {
-    position: absolute;
-    right: 9px !important;
-    bottom: 0;
-    max-width: 5px !important;
-    display: block !important;
+    max-height: 60px;
+    margin-right: -8px;
   }
 
   .qris-img {
-    width: 150px !important;
+    width: 160px;
     z-index: 2;
   }
 }
-
