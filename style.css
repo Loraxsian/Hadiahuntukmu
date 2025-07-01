@@ -284,32 +284,38 @@ body {
   }
 
   .foto-wrapper-hp {
-    display: none; /* Sembunyi dulu, karena nanti muncul bareng QRIS */
+    display: none; /* kalau dipakai, aktifkan kalau perlu */
   }
 
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
     margin-top: 20px;
     flex-wrap: nowrap;
+    position: relative;
   }
 
   .foto-kiri {
     height: 250px;
     width: auto;
+    margin-top: -40px; /* ✅ naik 40px */
   }
 
   .foto-kanan {
     height: 150px;
     width: auto;
-    margin-top: 20px; /* ✅ Tambahan ini */
+    margin-top: -20px; /* ✅ naik 20px */
   }
 
   .qris-img {
     height: 160px;
     width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
 }
 
