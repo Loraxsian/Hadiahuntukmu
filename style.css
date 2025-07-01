@@ -26,8 +26,8 @@ body {
 
 .left-photo {
   left: 0;
-  max-height: 150vh;
-  transform: scale(1.8); /* Jangan diubah ukurannya */
+  max-height: 200vh; /* Ditinggikan */
+  transform: scale(2.2); /* Diperbesar */
 }
 
 .right-photo {
