@@ -301,7 +301,7 @@ body {
     position: absolute;
     left: 0;
     bottom: 20px; /* naik 40px dari bawah (default: 60) */
-    height: 300px;
+    height: 300px !important;
     width: auto;
     z-index: 2;
   }
