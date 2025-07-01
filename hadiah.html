@@ -14,56 +14,60 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
-    <!-- Tombol Klaim -->
+    <!-- Tombol Klaim Hadiah -->
     <div class="klaim-container">
-      <button class="klaim-btn" onclick="showPasswordForm()">KLAIM</button>
+      <button class="klaim-btn" onclick="document.getElementById('passwordForm').style.display='block'">🎁 KLAIM 🎁</button>
       <div id="passwordForm" class="hidden">
-        <input type="password" id="passwordInput" placeholder="Masukkan sandi...">
-        <button onclick="cekPassword()">Buka</button>
+        <input type="password" id="passwordInput" placeholder="Masukkan password">
+        <button onclick="checkPassword()">Submit</button>
       </div>
     </div>
 
-    <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div class="qris-wrapper hidden" id="qrisWrapper">
+    <!-- QRIS untuk HP -->
+    <div id="qrisHp" class="qris-wrapper hidden">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
 
+    <!-- QRIS untuk PC -->
+    <div id="qrisPc" class="hidden qris-pc-container">
+      <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
+    </div>
+
     <!-- Tombol Aksi -->
-    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
-      <button onclick="window.location.href='index.html'" style="padding: 10px 20px; border-radius: 10px; background-color: #555; color: white; border: none; cursor: pointer;">
-        ← Kembali
-      </button>
-      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" style="padding: 10px 20px; border-radius: 10px; background-color: #00c2cb; color: white; border: none; cursor: pointer;">
-        🎵 Semoga Suka
-      </button>
+    <div class="hadiah-btn-container">
+      <button onclick="window.location.href='index.html'" class="btn-kembali">← Kembali</button>
+      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" class="btn-musik">🎵 Semoga Suka</button>
     </div>
   </section>
 
-  <!-- Hanya untuk PC -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
-
-  <canvas id="fireworksCanvas"></canvas>
 
   <!-- Script -->
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
-  <script>
-    function showPasswordForm() {
-      document.getElementById('passwordForm').classList.remove('hidden');
-    }
 
-    function cekPassword() {
-      const input = document.getElementById('passwordInput').value;
-      const valid = "103a0723f20ba1b21834c2398f0f2b03";
-      if (input === valid) {
-        document.getElementById('qrisWrapper').classList.remove('hidden');
-        document.getElementById('passwordForm').classList.add('hidden');
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const correct = "103a0723f20ba1b21834c2398f0f2b03";
+      if (input === correct) {
+        // Tampilkan QRIS HP jika di HP
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          document.getElementById("qrisHp").classList.remove("hidden");
+        } else {
+          document.getElementById("qrisPc").classList.remove("hidden");
+        }
+        document.getElementById("passwordForm").classList.add("hidden");
       } else {
-        alert("Sandi salah!");
+        alert("Password salah!");
       }
     }
   </script>
