@@ -34,14 +34,16 @@ body {
 .right-photo {
   right: 0;
   max-height: 70vh;
-  transform: scale(1.2); /* Dikecilkan dari sebelumnya */
+  transform: scale(1.2);
 }
 
-/* ---------- QRIS UTAMA ---------- */
+/* ---------- QRIS UTAMA PC (muncul setelah password) ---------- */
 .qris-img {
   width: 200px;
   margin-top: 20px;
   border-radius: 10px;
+  display: block;
+  margin-inline: auto;
 }
 
 /* ---------- RESPONSIVE UNTUK HP ---------- */
@@ -60,8 +62,8 @@ body {
   }
 
   .foto-kiri {
-    height: 240px;
-    width: 260px;
+    height: 280px;
+    width: auto;
   }
 
   .foto-kanan {
@@ -108,28 +110,4 @@ body {
   margin-left: 10px;
   border-radius: 8px;
   cursor: pointer;
-}
-
-.hadiah-btn-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.btn-kembali,
-.btn-musik {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.btn-kembali {
-  background-color: #555;
-}
-
-.btn-musik {
-  background-color: #00c2cb;
 }
