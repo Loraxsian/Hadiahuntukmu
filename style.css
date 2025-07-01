@@ -232,14 +232,18 @@ body {
     flex-wrap: nowrap;
   }
 
-  .foto-kiri,
+  .foto-kiri {
+    height: 180px;
+    width: auto;
+  }
+
   .foto-kanan {
     height: 120px;
-    width: 130px;
+    width: auto;
   }
 
   .qris-img {
     height: 120px;
-    width: 130px;
+    width: auto;
   }
 }

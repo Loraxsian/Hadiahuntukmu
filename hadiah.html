@@ -1,4 +1,4 @@
-\<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -14,13 +14,21 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
+    <!-- Tombol Klaim -->
+    <div class="klaim-container">
+      <button class="klaim-btn" onclick="showPasswordForm()">KLAIM</button>
+      <div id="passwordForm" class="hidden">
+        <input type="password" id="passwordInput" placeholder="Masukkan sandi...">
+        <button onclick="cekPassword()">Buka</button>
+      </div>
+    </div>
+
     <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div class="qris-wrapper">
+    <div class="qris-wrapper hidden" id="qrisWrapper">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
-
 
     <!-- Tombol Aksi -->
     <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
@@ -33,17 +41,31 @@
     </div>
   </section>
 
-  <canvas id="fireworksCanvas"></canvas>
-
-  <!-- Foto kiri & kanan untuk versi PC -->
+  <!-- Hanya untuk PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
+
+  <canvas id="fireworksCanvas"></canvas>
 
   <!-- Script -->
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
+  <script>
+    function showPasswordForm() {
+      document.getElementById('passwordForm').classList.remove('hidden');
+    }
+
+    function cekPassword() {
+      const input = document.getElementById('passwordInput').value;
+      const valid = "103a0723f20ba1b21834c2398f0f2b03";
+      if (input === valid) {
+        document.getElementById('qrisWrapper').classList.remove('hidden');
+        document.getElementById('passwordForm').classList.add('hidden');
+      } else {
+        alert("Sandi salah!");
+      }
+    }
+  </script>
 </body>
 </html>
-
-
