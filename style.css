@@ -1,4 +1,4 @@
-body { 
+body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
@@ -37,7 +37,7 @@ body {
   transform: scale(1) !important;
 }
 
-/* ---------- QRIS UTAMA ---------- */
+/* ---------- QRIS UTAMA (yang muncul setelah klaim) ---------- */
 .qris-img {
   width: 200px;
   margin-top: 20px;
@@ -218,13 +218,73 @@ body {
   color: #fff;
 }
 
+/* Tombol klaim hadiah */
+.klaim-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.klaim-btn {
+  background-color: #00c2cb;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#passwordForm input {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+
+#passwordForm button {
+  background-color: hotpink;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hadiah-btn-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-kembali,
+.btn-musik {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-kembali {
+  background-color: #555;
+}
+
+.btn-musik {
+  background-color: #00c2cb;
+}
+
+/* ========== RESPONSIF UNTUK HP ========== */
 @media screen and (max-width: 768px) {
   .side-photo {
     display: none !important;
   }
 
   .qris-wrapper {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     gap: 10px;
