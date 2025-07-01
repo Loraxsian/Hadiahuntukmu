@@ -22,6 +22,7 @@ body {
   bottom: 0;
   z-index: 3;
   opacity: 0.95;
+  display: block;
 }
 
 .left-photo {
@@ -32,12 +33,11 @@ body {
 
 .right-photo {
   right: 0;
-  bottom: 0;
-  max-height: 70vh !important;
-  transform: scale(1) !important;
+  max-height: 70vh;
+  transform: scale(1);
 }
 
-/* ---------- QRIS UTAMA ---------- */
+/* ---------- QRIS UTAMA PC ---------- */
 .qris-img {
   width: 200px;
   margin-top: 20px;
@@ -46,12 +46,45 @@ body {
 
 /* ---------- QRIS & FOTO KHUSUS HP ---------- */
 .qris-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  flex-wrap: nowrap;
+  display: none;
+}
+
+/* ---------- RESPONSIVE UNTUK HP ---------- */
+@media screen and (max-width: 768px) {
+  .side-photo {
+    display: none !important;
+  }
+
+  .qris-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 5;
+  }
+
+  .foto-kiri,
+  .foto-kanan,
+  .qris-img {
+    height: 260px; /* 130 * 2 = 260px */
+    width: auto;
+    object-fit: contain;
+  }
+
+  .foto-kiri {
+    order: 1;
+  }
+
+  .qris-img {
+    order: 2;
+  }
+
+  .foto-kanan {
+    order: 3;
+  }
 }
 
 /* ---------- BAGIAN LAIN ---------- */
@@ -221,38 +254,4 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: #fff;
-}
-
-/* ---------- TAMPILAN HP ---------- */
-@media screen and (max-width: 768px) {
-  .side-photo {
-    display: none !important;
-  }
-
-  .qris-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 30px;
-    flex-wrap: nowrap;
-  }
-
-  .foto-kiri {
-    height: 260px; /* 2x dari 130px */
-    width: auto;
-    object-fit: contain;
-  }
-
-  .qris-img {
-    height: 130px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .foto-kanan {
-    height: 130px; /* 1x dari sebelumnya */
-    width: auto;
-    object-fit: contain;
-  }
 }
