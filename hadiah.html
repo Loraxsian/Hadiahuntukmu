@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hadiah Untukmu</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/particle-style.css" />
 </head>
 <body>
   <div id="particles-js"></div>
@@ -16,57 +15,53 @@
 
     <!-- Tombol Klaim -->
     <div class="klaim-container">
-      <button class="klaim-btn" onclick="showPasswordForm()">KLAIM</button>
-      <form id="passwordForm" class="hidden" onsubmit="return checkPassword()">
+      <button class="klaim-btn" onclick="showPasswordForm()">KLAIM 🎁</button>
+      <div id="passwordForm" class="hidden">
         <input type="password" id="passwordInput" placeholder="Masukkan password">
-        <button type="submit">Submit</button>
-      </form>
+        <button onclick="cekPassword()">Lihat Hadiah</button>
+      </div>
     </div>
 
-    <!-- QRIS & FOTO KHUSUS HP (muncul setelah password) -->
-    <div class="qris-wrapper hidden" id="qrisWrapper">
+    <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
+    <div class="qris-wrapper hidden" id="qrisArea">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
 
-    <!-- QRIS PC (muncul setelah password) -->
-    <div id="qrisPC" class="hidden">
-      <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
-    </div>
-
     <!-- Tombol Aksi -->
-    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
+    <div class="hadiah-btn-container">
       <button onclick="window.location.href='index.html'" class="btn-kembali">← Kembali</button>
       <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" class="btn-musik">🎵 Semoga Suka</button>
     </div>
   </section>
+
+  <canvas id="fireworksCanvas"></canvas>
 
   <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
 
   <!-- Script -->
-  <script src="js/particles.min.js"></script>
-  <script src="js/particle-script.js"></script>
-  <script src="js/fireworks.js"></script>
   <script>
     function showPasswordForm() {
       document.getElementById("passwordForm").classList.remove("hidden");
     }
 
-    function checkPassword() {
+    function cekPassword() {
       const input = document.getElementById("passwordInput").value;
-      const correct = "103a0723f20ba1b21834c2398f0f2b03";
-      if (input === correct) {
-        document.getElementById("qrisWrapper").classList.remove("hidden");
-        document.getElementById("qrisPC").classList.remove("hidden");
+      const kunci = "103a0723f20ba1b21834c2398f0f2b03";
+      if (input === kunci) {
+        document.getElementById("qrisArea").classList.remove("hidden");
         document.getElementById("passwordForm").classList.add("hidden");
       } else {
-        alert("Password salah!");
+        alert("Password salah. Coba lagi.");
       }
-      return false;
     }
   </script>
+
+  <script src="js/particles.min.js"></script>
+  <script src="js/particle-script.js"></script>
+  <script src="js/fireworks.js"></script>
 </body>
 </html>

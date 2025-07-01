@@ -27,57 +27,33 @@ body {
 
 .left-photo {
   left: 0;
-  max-height: 150vh;
+  max-height: 70vh;
   transform: scale(1.4);
 }
 
 .right-photo {
   right: 0;
   max-height: 70vh;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
-/* ---------- QRIS UTAMA PC (muncul setelah password) ---------- */
-.qris-img {
-  width: 200px;
+/* ---------- QRIS & FOTO KHUSUS HP ---------- */
+.qris-wrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 20px;
-  border-radius: 10px;
-  display: block;
-  margin-inline: auto;
+  flex-wrap: nowrap;
 }
 
-/* ---------- RESPONSIVE UNTUK HP ---------- */
-@media screen and (max-width: 768px) {
-  .side-photo {
-    display: none !important;
-  }
-
-  .qris-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: nowrap;
-  }
-
-  .foto-kiri {
-    height: 280px;
-    width: auto;
-  }
-
-  .foto-kanan {
-    height: 120px;
-    width: 130px;
-  }
-
-  .qris-img {
-    height: 120px;
-    width: 130px;
-  }
+.foto-kiri,
+.foto-kanan,
+.qris-img {
+  height: auto;
+  width: auto;
 }
 
-/* Tombol dan form password */
 .klaim-container {
   text-align: center;
   margin-top: 20px;
@@ -110,4 +86,54 @@ body {
   margin-left: 10px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.hadiah-btn-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-kembali,
+.btn-musik {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-kembali {
+  background-color: #555;
+}
+
+.btn-musik {
+  background-color: #00c2cb;
+}
+
+/* ========== RESPONSIF UNTUK HP ========== */
+@media screen and (max-width: 768px) {
+  .side-photo {
+    display: none !important;
+  }
+
+  .qris-wrapper {
+    display: flex !important;
+  }
+
+  .foto-kiri {
+    height: 240px;
+    width: auto;
+  }
+
+  .foto-kanan {
+    height: 120px;
+    width: auto;
+  }
+
+  .qris-img {
+    height: 120px;
+    width: auto;
+  }
 }
