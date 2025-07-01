@@ -301,7 +301,7 @@ body {
     position: absolute;
     left: 0;
     bottom: 20px; /* naik 40px dari bawah (default: 60) */
-    height: 150px;
+    height: 150px !important;
     width: auto;
     z-index: 2;
   }
@@ -310,7 +310,7 @@ body {
     position: absolute;
     right: 0;
     bottom: 0; /* turun dikit */
-    height: 100px;
+    height: 100px !important;
     width: auto;
     z-index: 2;
   }
