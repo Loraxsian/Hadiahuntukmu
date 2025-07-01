@@ -293,17 +293,50 @@ body {
   }
 
   .foto-kiri {
-    height: 180px;
+    height: 250px;
     width: auto;
   }
 
   .foto-kanan {
-    height: 120px;
+    height: 150px;
     width: auto;
   }
 
   .qris-img {
-    height: 120px;
+    height: 160px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .foto-wrapper-hp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .qris-wrapper:not(.hidden) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .foto-kiri {
+    height: 250px;
+    width: auto;
+  }
+
+  .foto-kanan {
+    height: 150px;
+    width: auto;
+  }
+
+  .qris-img {
+    height: 160px;
     width: auto;
   }
 }
