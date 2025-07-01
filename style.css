@@ -27,7 +27,7 @@ body {
 .left-photo {
   left: 0;
   max-height: 150vh;
-  transform: scale(1.8); /* Jangan diubah ukurannya */
+  transform: scale(1.8);
 }
 
 .right-photo {
@@ -46,7 +46,12 @@ body {
 
 /* ---------- QRIS & FOTO KHUSUS HP ---------- */
 .qris-wrapper {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: nowrap;
 }
 
 /* ---------- BAGIAN LAIN ---------- */
@@ -228,15 +233,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 30px;
     flex-wrap: nowrap;
   }
 
-  .foto-kiri,
-  .foto-kanan,
+  .foto-kiri {
+    height: 260px; /* 2x dari 130px */
+    width: auto;
+    object-fit: contain;
+  }
+
   .qris-img {
     height: 130px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .foto-kanan {
+    height: 130px; /* 1x dari sebelumnya */
     width: auto;
     object-fit: contain;
   }
