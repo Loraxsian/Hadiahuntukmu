@@ -65,7 +65,7 @@ body {
   }
 
   .foto-kiri {
-    height: 280px; /* diperbesar sedikit */
+    height: 320px; /* PERBESAR KHUSUS FOTO KIRI */
     width: auto;
   }
 
@@ -80,6 +80,24 @@ body {
   }
 }
 
+/* KHUSUS PC */
+@media screen and (min-width: 769px) {
+  .qris-wrapper {
+    display: none !important; /* QRIS wrapper hanya muncul di HP */
+  }
+
+  .side-photo.left-photo {
+    left: 0;
+    max-height: 70vh;
+    transform: scale(1.4); /* Ukuran proporsional kiri */
+  }
+
+  .side-photo.right-photo {
+    right: 0;
+    max-height: 70vh;
+    transform: scale(1.4); /* Ukuran proporsional kanan */
+  }
+}
 /* ---------- BAGIAN LAIN ---------- */
 .hidden {
   display: none;
