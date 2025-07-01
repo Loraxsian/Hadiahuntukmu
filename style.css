@@ -60,30 +60,23 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     flex-wrap: nowrap;
-    position: relative;
-    z-index: 5;
-  }
-
-  .foto-kiri,
-  .foto-kanan,
-  .qris-img {
-    height: 260px; /* 130 * 2 = 260px */
-    width: auto;
-    object-fit: contain;
   }
 
   .foto-kiri {
-    order: 1;
-  }
-
-  .qris-img {
-    order: 2;
+    height: 280px; /* diperbesar sedikit */
+    width: auto;
   }
 
   .foto-kanan {
-    order: 3;
+    height: 260px;
+    width: auto;
+  }
+
+  .qris-img {
+    height: 260px;
+    width: auto;
   }
 }
 
