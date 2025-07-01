@@ -283,7 +283,7 @@ body {
     display: none !important;
   }
 
-  .qris-wrapper {
+  .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
     align-items: center;

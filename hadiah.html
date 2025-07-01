@@ -55,7 +55,9 @@
       e.preventDefault();
       const input = document.getElementById("passwordInput").value;
       if (input === "ultahprita") {
-        document.getElementById("qrisSection").classList.remove("hidden");
+        const qrisSection = document.getElementById("qrisSection");
+        qrisSection.classList.remove("hidden");
+        qrisSection.style.display = "flex"; // Tambahkan ini agar tampil di PC
         document.getElementById("passwordForm").style.display = "none";
       } else {
         alert("Password salah ya :)");
