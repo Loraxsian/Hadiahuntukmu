@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -14,29 +14,31 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
-    <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div id="qrisSection" class="qris-wrapper hidden">
+    <!-- Tombol Klaim Hadiah -->
+    <div class="klaim-container">
+      <button class="klaim-btn" onclick="document.getElementById('passwordForm').style.display='block'">🎁 KLAIM 🎁</button>
+      <div id="passwordForm" class="hidden">
+        <input type="password" id="passwordInput" placeholder="Masukkan password">
+        <button onclick="checkPassword()">Submit</button>
+      </div>
+    </div>
+
+    <!-- QRIS untuk HP -->
+    <div id="qrisHp" class="qris-wrapper hidden">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
 
-    <!-- Form Password -->
-    <div class="klaim-container">
-      <form id="passwordForm">
-        <input type="password" id="passwordInput" placeholder="Masukkan password..." required />
-        <button type="submit">Klaim</button>
-      </form>
+    <!-- QRIS untuk PC -->
+    <div id="qrisPc" class="hidden qris-pc-container">
+      <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
     </div>
 
     <!-- Tombol Aksi -->
-    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
-      <button onclick="window.location.href='index.html'" style="padding: 10px 20px; border-radius: 10px; background-color: #555; color: white; border: none; cursor: pointer;">
-        ← Kembali
-      </button>
-      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" style="padding: 10px 20px; border-radius: 10px; background-color: #00c2cb; color: white; border: none; cursor: pointer;">
-        🎵 Semoga Suka
-      </button>
+    <div class="hadiah-btn-container">
+      <button onclick="window.location.href='index.html'" class="btn-kembali">← Kembali</button>
+      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" class="btn-musik">🎵 Semoga Suka</button>
     </div>
   </section>
 
@@ -50,17 +52,24 @@
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
+
   <script>
-    document.getElementById("passwordForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    function checkPassword() {
       const input = document.getElementById("passwordInput").value;
-      if (input === "ultahprita") {
-        document.getElementById("qrisSection").classList.remove("hidden");
-        document.getElementById("passwordForm").style.display = "none";
+      const correct = "103a0723f20ba1b21834c2398f0f2b03";
+      if (input === correct) {
+        // Tampilkan QRIS HP jika di HP
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          document.getElementById("qrisHp").classList.remove("hidden");
+        } else {
+          document.getElementById("qrisPc").classList.remove("hidden");
+        }
+        document.getElementById("passwordForm").classList.add("hidden");
       } else {
-        alert("Password salah ya :)");
+        alert("Password salah!");
       }
-    });
+    }
   </script>
 </body>
 </html>

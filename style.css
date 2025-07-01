@@ -27,17 +27,16 @@ body {
 .left-photo {
   left: 0;
   max-height: 150vh;
-  transform: scale(1.8); /* Jangan diubah ukurannya */
+  transform: scale(1.8);
 }
 
 .right-photo {
   right: 0;
-  bottom: 0;
   max-height: 70vh !important;
   transform: scale(1) !important;
 }
 
-/* ---------- QRIS UTAMA (yang muncul setelah klaim) ---------- */
+/* ---------- QRIS UTAMA ---------- */
 .qris-img {
   width: 200px;
   margin-top: 20px;
@@ -49,176 +48,14 @@ body {
   display: none;
 }
 
-/* ---------- BAGIAN LAIN ---------- */
-.hidden {
-  display: none;
-}
-
-.intro {
-  height: 100vh;
+/* ---------- QRIS PC container ---------- */
+.qris-pc-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin-top: 30px;
 }
 
-#introText {
-  font-size: 2.5rem;
-  font-family: 'Pacifico', cursive;
-  color: #ffb6c1;
-}
-
-.countdown {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: #ffccff;
-}
-
-.main {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.judul-utama {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-  color: #ffb6c1;
-}
-
-.subjudul {
-  font-size: 1.2rem;
-  color: #ddd;
-}
-
-.galeri-container {
-  margin-top: 40px;
-}
-
-.judul-box {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.2rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-
-.galeri {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
-
-.galeri img {
-  width: 80%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-}
-
-.surat-container {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.surat-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-.surat-box button {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-.isi-surat {
-  margin-top: 20px;
-  text-align: left;
-  color: #fff;
-}
-
-.hadiah {
-  margin-top: 60px;
-  text-align: center;
-}
-
-.btn-hadiah {
-  display: inline-block;
-  background-color: #00c2cb;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.hadiah-content {
-  margin-top: 40px;
-  text-align: center;
-}
-
-#fireworksCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.galeri-box {
-  background: rgba(255, 255, 255, 0.07);
-  padding: 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
-  max-width: 1000px;
-  margin: 20px auto;
-  transition: 0.3s ease;
-}
-
-.galeri-box:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.ucapan-box {
-  background: rgba(255, 255, 255, 0.07);
-  padding: 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
-  max-width: 1000px;
-  margin: 40px auto;
-  transition: 0.3s ease;
-}
-
-.ucapan-box:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.ucapan-birthday {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #fff;
-}
-
-/* Tombol klaim hadiah */
+/* ---------- FORM KLAIM ---------- */
 .klaim-container {
   text-align: center;
   margin-top: 20px;
@@ -253,31 +90,11 @@ body {
   cursor: pointer;
 }
 
-.hadiah-btn-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.hidden {
+  display: none;
 }
 
-.btn-kembali,
-.btn-musik {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.btn-kembali {
-  background-color: #555;
-}
-
-.btn-musik {
-  background-color: #00c2cb;
-}
-
-/* ========== RESPONSIF UNTUK HP ========== */
+/* ---------- RESPONSIF UNTUK HP ---------- */
 @media screen and (max-width: 768px) {
   .side-photo {
     display: none !important;
@@ -306,4 +123,39 @@ body {
     height: 120px;
     width: auto;
   }
+
+  #qrisPc {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #qrisHp {
+    display: none !important;
+  }
+}
+
+/* ---------- TOMBOL KEMBALI & MUSIK ---------- */
+.hadiah-btn-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-kembali,
+.btn-musik {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-kembali {
+  background-color: #555;
+}
+
+.btn-musik {
+  background-color: #00c2cb;
 }
