@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hadiah Untukmu</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/particle-style.css" />
 </head>
 <body>
   <div id="particles-js"></div>
@@ -15,15 +16,15 @@
 
     <!-- Tombol Klaim -->
     <div class="klaim-container">
-      <button class="klaim-btn" onclick="showPasswordForm()">KLAIM 🎁</button>
+      <button id="btnKlaim" class="klaim-btn">KLAIM</button>
       <div id="passwordForm" class="hidden">
-        <input type="password" id="passwordInput" placeholder="Masukkan password">
-        <button onclick="cekPassword()">Lihat Hadiah</button>
+        <input type="password" id="passwordInput" placeholder="Masukkan password" />
+        <button onclick="cekPassword()">Submit</button>
       </div>
     </div>
 
     <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div class="qris-wrapper hidden" id="qrisArea">
+    <div class="qris-wrapper hidden" id="qrisWrapper">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
@@ -36,32 +37,34 @@
     </div>
   </section>
 
-  <canvas id="fireworksCanvas"></canvas>
-
   <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
 
-  <!-- Script -->
-  <script>
-    function showPasswordForm() {
-      document.getElementById("passwordForm").classList.remove("hidden");
-    }
-
-    function cekPassword() {
-      const input = document.getElementById("passwordInput").value;
-      const kunci = "103a0723f20ba1b21834c2398f0f2b03";
-      if (input === kunci) {
-        document.getElementById("qrisArea").classList.remove("hidden");
-        document.getElementById("passwordForm").classList.add("hidden");
-      } else {
-        alert("Password salah. Coba lagi.");
-      }
-    }
-  </script>
+  <canvas id="fireworksCanvas"></canvas>
 
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
+  <script>
+    const btnKlaim = document.getElementById("btnKlaim");
+    const passwordForm = document.getElementById("passwordForm");
+    const qrisWrapper = document.getElementById("qrisWrapper");
+
+    btnKlaim.onclick = () => {
+      passwordForm.classList.remove("hidden");
+    };
+
+    function cekPassword() {
+      const password = document.getElementById("passwordInput").value;
+      if (password === "103a0723f20ba1b21834c2398f0f2b03") {
+        qrisWrapper.classList.remove("hidden");
+        passwordForm.classList.add("hidden");
+        btnKlaim.classList.add("hidden");
+      } else {
+        alert("Password salah!");
+      }
+    }
+  </script>
 </body>
 </html>
