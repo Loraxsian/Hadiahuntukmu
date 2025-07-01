@@ -277,10 +277,14 @@ body {
   background-color: #00c2cb;
 }
 
-/* ========== RESPONSIF UNTUK HP ========== */
+/* ========== RESPONSIF UNTUK HP & QRIS ========== */
 @media screen and (max-width: 768px) {
   .side-photo {
     display: none !important;
+  }
+
+  .foto-wrapper-hp {
+    display: none; /* Sembunyi dulu, karena nanti muncul bareng QRIS */
   }
 
   .qris-wrapper:not(.hidden) {
@@ -308,35 +312,22 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .foto-wrapper-hp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: nowrap;
+/* ========== RESPONSIF PC QRIS ========== */
+@media screen and (min-width: 769px) {
+  .foto-kiri,
+  .foto-kanan {
+    display: none; /* Jangan munculkan gambar kiri-kanan versi HP di desktop */
   }
 
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-  }
-
-  .foto-kiri {
-    height: 250px;
-    width: auto;
-  }
-
-  .foto-kanan {
-    height: 150px;
-    width: auto;
+    margin-top: 20px;
   }
 
   .qris-img {
-    height: 160px;
-    width: auto;
+    width: 220px;
+    margin-top: 20px;
   }
 }
