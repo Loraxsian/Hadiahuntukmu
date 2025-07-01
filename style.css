@@ -218,6 +218,7 @@ body {
   color: #fff;
 }
 
+/* ---------- TAMPILAN HP ---------- */
 @media screen and (max-width: 768px) {
   .side-photo {
     display: none !important;
@@ -233,13 +234,10 @@ body {
   }
 
   .foto-kiri,
-  .foto-kanan {
-    height: 120px;
-    width: 130px;
-  }
-
+  .foto-kanan,
   .qris-img {
-    height: 120px;
-    width: 130px;
+    height: 130px;
+    width: auto;
+    object-fit: contain;
   }
 }
