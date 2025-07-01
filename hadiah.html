@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html> 
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -14,57 +14,36 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
-    <!-- Tombol Klaim -->
-    <div class="klaim-container">
-      <button id="btnKlaim" class="klaim-btn">KLAIM</button>
-      <div id="passwordForm" class="hidden">
-        <input type="password" id="passwordInput" placeholder="Masukkan password" />
-        <button onclick="cekPassword()">Submit</button>
-      </div>
-    </div>
-
     <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div class="qris-wrapper hidden" id="qrisWrapper">
+    <div class="qris-wrapper">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
 
+
     <!-- Tombol Aksi -->
-    <div class="hadiah-btn-container">
-      <button onclick="window.location.href='index.html'" class="btn-kembali">← Kembali</button>
-      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" class="btn-musik">🎵 Semoga Suka</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
+      <button onclick="window.location.href='index.html'" style="padding: 10px 20px; border-radius: 10px; background-color: #555; color: white; border: none; cursor: pointer;">
+        ← Kembali
+      </button>
+      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" style="padding: 10px 20px; border-radius: 10px; background-color: #00c2cb; color: white; border: none; cursor: pointer;">
+        🎵 Semoga Suka
+      </button>
     </div>
   </section>
+
+  <canvas id="fireworksCanvas"></canvas>
 
   <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
 
-  <canvas id="fireworksCanvas"></canvas>
-
+  <!-- Script -->
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
-  <script>
-    const btnKlaim = document.getElementById("btnKlaim");
-    const passwordForm = document.getElementById("passwordForm");
-    const qrisWrapper = document.getElementById("qrisWrapper");
-
-    btnKlaim.onclick = () => {
-      passwordForm.classList.remove("hidden");
-    };
-
-    function cekPassword() {
-      const password = document.getElementById("passwordInput").value;
-      if (password === "103a0723f20ba1b21834c2398f0f2b03") {
-        qrisWrapper.classList.remove("hidden");
-        passwordForm.classList.add("hidden");
-        btnKlaim.classList.add("hidden");
-      } else {
-        alert("Password salah!");
-      }
-    }
-  </script>
 </body>
 </html>
+
+
