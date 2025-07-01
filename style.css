@@ -281,41 +281,28 @@ body {
 @media screen and (max-width: 768px) {
   .qris-wrapper:not(.hidden) {
     position: relative;
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     height: 250px;
     margin-top: 30px;
+    gap: 10px;
   }
 
   .qris-img {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    height: 230px;
+    height: 180px;
     width: auto;
     z-index: 3;
   }
 
-  .foto-kiri {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 230px !important; /* SAMA dengan qris-img */
-    width: auto !important;
-    z-index: 2;
-  }
-
+  .foto-kiri,
   .foto-kanan {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 230px !important; /* SAMA juga */
-    width: auto !important;
+    height: 180px;
+    width: auto;
+    position: relative;
     z-index: 2;
   }
 }
-
 
 /* ========== RESPONSIF PC QRIS ========== */
 @media screen and (min-width: 769px) {
