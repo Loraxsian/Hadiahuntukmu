@@ -14,63 +14,55 @@
     <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
     <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
 
-    <!-- Tombol klaim dan form password -->
-    <div id="klaimContainer" style="text-align: center;">
-      <button onclick="tampilkanForm()" style="padding: 12px 24px; font-size: 18px; background-color: #00c2cb; color: white; border: none; border-radius: 10px; cursor: pointer;">
-        🎁 KLAIM HADIAH
-      </button>
-
-      <div id="formPassword" style="display: none; margin-top: 20px;">
-        <input type="password" id="passwordInput" placeholder="Masukkan password" style="padding: 10px; border-radius: 6px; border: none; font-size: 16px;">
-        <button onclick="cekPassword()" style="padding: 10px 20px; background-color: #ff69b4; color: white; border: none; border-radius: 6px; margin-left: 10px;">Submit</button>
-        <p id="pesanError" style="color: red; margin-top: 10px;"></p>
+    <!-- Tombol Klaim -->
+    <div class="klaim-container">
+      <button id="btnKlaim" class="klaim-btn">KLAIM</button>
+      <div id="passwordForm" class="hidden">
+        <input type="password" id="passwordInput" placeholder="Masukkan password" />
+        <button onclick="cekPassword()">Submit</button>
       </div>
     </div>
 
     <!-- QRIS + Foto Kiri & Kanan khusus untuk HP -->
-    <div class="qris-wrapper" id="hadiahAsli" style="display: none;">
+    <div class="qris-wrapper hidden" id="qrisWrapper">
       <img src="galeri/laura_leftstyle.png" class="foto-kiri" alt="Laura Kiri">
       <img src="img/qris.png" class="qris-img" alt="QRIS Hadiah">
       <img src="galeri/laura_rightstyle-preview.png" class="foto-kanan" alt="Laura Kanan">
     </div>
 
     <!-- Tombol Aksi -->
-    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
-      <button onclick="window.location.href='index.html'" style="padding: 10px 20px; border-radius: 10px; background-color: #555; color: white; border: none; cursor: pointer;">
-        ← Kembali
-      </button>
-      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" style="padding: 10px 20px; border-radius: 10px; background-color: #00c2cb; color: white; border: none; cursor: pointer;">
-        🎵 Semoga Suka
-      </button>
+    <div class="hadiah-btn-container">
+      <button onclick="window.location.href='index.html'" class="btn-kembali">← Kembali</button>
+      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" class="btn-musik">🎵 Semoga Suka</button>
     </div>
   </section>
-
-  <canvas id="fireworksCanvas"></canvas>
 
   <!-- Foto kiri & kanan untuk versi PC -->
   <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
   <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
 
-  <!-- Script -->
+  <canvas id="fireworksCanvas"></canvas>
+
   <script src="js/particles.min.js"></script>
   <script src="js/particle-script.js"></script>
   <script src="js/fireworks.js"></script>
-
-  <!-- Script Password QRIS -->
   <script>
-    function tampilkanForm() {
-      document.getElementById('formPassword').style.display = 'block';
-    }
+    const btnKlaim = document.getElementById("btnKlaim");
+    const passwordForm = document.getElementById("passwordForm");
+    const qrisWrapper = document.getElementById("qrisWrapper");
+
+    btnKlaim.onclick = () => {
+      passwordForm.classList.remove("hidden");
+    };
 
     function cekPassword() {
-      const input = document.getElementById('passwordInput').value;
-      const benar = "103a0723f20ba1b21834c2398f0f2b03";
-
-      if (input === benar) {
-        document.getElementById('klaimContainer').style.display = 'none';
-        document.getElementById('hadiahAsli').style.display = 'flex';
+      const password = document.getElementById("passwordInput").value;
+      if (password === "103a0723f20ba1b21834c2398f0f2b03") {
+        qrisWrapper.classList.remove("hidden");
+        passwordForm.classList.add("hidden");
+        btnKlaim.classList.add("hidden");
       } else {
-        document.getElementById('pesanError').innerText = 'Password salah. Coba lagi.';
+        alert("Password salah!");
       }
     }
   </script>
