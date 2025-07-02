@@ -316,7 +316,7 @@ body {
   }
 
   .qris-row img {
-    height: 120px !important;
+    height: 200px !important;
     width: auto !important;
     object-fit: contain !important;
   }
