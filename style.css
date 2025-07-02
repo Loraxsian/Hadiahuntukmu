@@ -303,7 +303,7 @@ body {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     margin-top: 30px;
   }
 
@@ -312,23 +312,23 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
-    gap: 10px;
+    gap: 20px;
   }
 
   .qris-row img {
-    height: 150px !important; /* Perbesar di sini */
+    height: 200px !important; /* Perbesar dari 150 ke 200 */
     width: auto !important;
     object-fit: contain !important;
   }
 
   .qris-img {
-    height: 150px !important; /* Samakan ukuran QRIS */
+    height: 200px !important; /* Samakan ukuran QRIS */
     object-fit: contain !important;
   }
 
   .foto-kiri,
   .foto-kanan {
-    height: 150px !important; /* Samakan dengan gambar lainnya */
+    height: 200px !important; /* Samakan dengan kiri kanan */
     width: auto !important;
     object-fit: contain !important;
   }
