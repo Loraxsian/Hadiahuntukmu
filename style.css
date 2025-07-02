@@ -299,26 +299,25 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
+  .qris-wrapper:not(.hidden) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+  }
+
   .foto-kiri,
   .foto-kanan {
-    height: 130px !important;
+    height: 100px !important;
     width: auto !important;
-    max-height: 130px !important;
     object-fit: contain !important;
   }
 
   .qris-img {
-    height: 130px !important;
+    height: 100px !important;
     width: auto !important;
-  }
-
-  .qris-wrapper:not(.hidden) {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 10px !important;
-    position: relative !important;
-    height: auto !important;
-    margin-top: 30px !important;
+    object-fit: contain !important;
   }
 }
