@@ -316,19 +316,19 @@ body {
   }
 
   .qris-row img {
-    height: 200px !important;
+    height: 150px !important; /* Perbesar di sini */
     width: auto !important;
     object-fit: contain !important;
   }
 
   .qris-img {
-    height: 120px !important;
+    height: 150px !important; /* Samakan ukuran QRIS */
     object-fit: contain !important;
   }
 
   .foto-kiri,
   .foto-kanan {
-    height: 120px !important;
+    height: 150px !important; /* Samakan dengan gambar lainnya */
     width: auto !important;
     object-fit: contain !important;
   }
