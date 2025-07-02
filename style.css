@@ -302,7 +302,6 @@ body {
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 15px;
     margin-top: 30px;
@@ -312,14 +311,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
   }
 
   .qris-row img {
-    height: 120px;
-    width: auto;
-    object-fit: contain;
+    height: 120px !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
 
   .qris-img {
@@ -332,5 +331,12 @@ body {
     height: 120px !important;
     width: auto !important;
     object-fit: contain !important;
+  }
+}
+
+/* SEMBUNYIKAN FOTO PC SAAT DI HP */
+@media screen and (max-width: 768px) {
+  .only-pc {
+    display: none !important;
   }
 }
