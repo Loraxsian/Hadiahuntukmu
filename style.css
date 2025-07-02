@@ -280,29 +280,30 @@ body {
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
   .qris-wrapper:not(.hidden) {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 250px;
-    margin-top: 30px;
     gap: 10px;
+    flex-wrap: nowrap;
+    height: 200px;
+    margin-top: 30px;
+    position: relative;
   }
 
   .qris-img {
-    height: 180px;
+    height: 140px;
     width: auto;
     z-index: 3;
   }
 
   .foto-kiri,
   .foto-kanan {
-    height: 180px;
+    height: 140px;
     width: auto;
-    position: relative;
     z-index: 2;
   }
 }
+
 
 /* ========== RESPONSIF PC QRIS ========== */
 @media screen and (min-width: 769px) {
