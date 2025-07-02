@@ -303,21 +303,30 @@ body {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 100%;
   }
 
   .qris-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;
   }
 
   .foto-kiri,
-  .foto-kanan,
+  .foto-kanan {
+    height: 100px !important;
+    width: auto !important;
+    max-height: 100px !important;
+    object-fit: contain !important;
+  }
+
   .qris-img {
-    height: 100px;
-    width: auto;
-    object-fit: contain;
+    height: 100px !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
 }
