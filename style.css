@@ -322,7 +322,8 @@ body {
   }
 
   .foto-kiri {
-    height: 250px !important; /* <- ini diperbesar khusus */
+    height: 300px !important; /* hanya ini yang aktif */
+    width: auto !important;
     object-fit: contain !important;
   }
 
@@ -337,13 +338,5 @@ body {
 @media screen and (max-width: 768px) {
   .only-pc {
     display: none !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .foto-kiri {
-    height: 300px !important;
-    width: auto !important;
-    object-fit: contain !important;
   }
 }
