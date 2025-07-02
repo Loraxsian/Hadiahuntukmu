@@ -277,34 +277,6 @@ body {
   background-color: #00c2cb;
 }
 
-/* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
-@media screen and (max-width: 768px) {
-  .qris-wrapper:not(.hidden) {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 10px;
-    flex-wrap: nowrap;
-    height: 200px;
-    margin-top: 30px;
-    position: relative;
-  }
-
-  .qris-img {
-    height: 140px;
-    width: auto;
-    z-index: 3;
-  }
-
-  .foto-kiri,
-  .foto-kanan {
-    height: 140px;
-    width: auto;
-    z-index: 2;
-  }
-}
-
-
 /* ========== RESPONSIF PC QRIS ========== */
 @media screen and (min-width: 769px) {
   .foto-kiri,
@@ -322,5 +294,31 @@ body {
   .qris-img {
     width: 220px;
     margin-top: 20px;
+  }
+}
+
+/* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
+@media screen and (max-width: 768px) {
+  .foto-kiri,
+  .foto-kanan {
+    height: 130px !important;
+    width: auto !important;
+    max-height: 130px !important;
+    object-fit: contain !important;
+  }
+
+  .qris-img {
+    height: 130px !important;
+    width: auto !important;
+  }
+
+  .qris-wrapper:not(.hidden) {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    position: relative !important;
+    height: auto !important;
+    margin-top: 30px !important;
   }
 }
