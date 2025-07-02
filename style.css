@@ -301,32 +301,16 @@ body {
 @media screen and (max-width: 768px) {
   .qris-wrapper:not(.hidden) {
     display: flex !important;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  .qris-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
-    width: 100%;
-    flex-wrap: nowrap;
+    margin-top: 30px;
   }
 
-  .foto-kiri,
-  .foto-kanan {
-    height: 100px !important;
+  .qris-wrapper img {
+    height: 120px !important;
     width: auto !important;
-    max-height: 100px !important;
-    object-fit: contain !important;
-  }
-
-  .qris-img {
-    height: 100px !important;
-    width: auto !important;
-    object-fit: contain !important;
+    object-fit: contain;
   }
 }
