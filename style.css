@@ -301,10 +301,10 @@ body {
 @media screen and (max-width: 768px) {
   .qris-wrapper:not(.hidden) {
     display: flex !important;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
     margin-top: 30px;
+    width: 100%;
   }
 
   .qris-row {
@@ -313,52 +313,35 @@ body {
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .foto-kiri,
+  .foto-kanan {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
   }
 
   .foto-kiri {
-    height: 280px !important;
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  .qris-img {
-    height: 200px !important;
-    width: auto !important;
-    object-fit: contain !important;
+  height: 300px; /* 👉 Naik dari sebelumnya */
+  width: auto;
+  object-fit: contain;
+  margin-top: 20px;
+  transform: translateY(10px);
   }
 
   .foto-kanan {
-    height: 200px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    transform: translateY(10px); /* agar turun sedikit */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #qrisSection .qris-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 10px;
+    transform: translateY(20px); /* lebih turun agar sejajar */
   }
 
-  #qrisSection .foto-kiri {
-    height: 300px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    transform: scale(1.15); /* PAKSA membesar */
-  }
-
-  #qrisSection .qris-img {
-    height: 200px !important;
-    object-fit: contain !important;
-  }
-
-  #qrisSection .foto-kanan {
-    height: 200px !important;
-    object-fit: contain !important;
-    transform: translateY(10px);
+  .qris-img {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 10px;
+    display: block;
   }
 }
 
