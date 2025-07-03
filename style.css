@@ -312,39 +312,42 @@ body {
 
   .qris-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
     width: 100%;
+    max-width: 360px; /* Biar pas HP */
+    margin: 0 auto;
     padding: 0 10px;
     gap: 10px;
   }
 
   .foto-kiri-wrapper,
   .foto-kanan-wrapper {
-    flex: 0 0 auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
   }
 
   .foto-kiri {
-    height: 280px !important;
-    width: auto !important;
+    height: 250px;
     object-fit: contain;
   }
 
   .foto-kanan {
-    height: 220px !important;
+    height: 250px;
     object-fit: contain;
-    transform: translateY(10px);
   }
 
   .qris-img-wrapper {
-    flex: 0 0 auto;
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .qris-img {
-    height: 220px !important;
+    height: 200px;
     object-fit: contain;
     display: block;
   }
