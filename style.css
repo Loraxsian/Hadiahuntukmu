@@ -322,7 +322,9 @@ body {
 
   .kiri {
     height: 320px !important;
-    width: 200px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
   }
 
   .kanan {
