@@ -325,7 +325,10 @@ body {
 
   .kiri {
     height: 500px !important;
+    max-width: 140px !important;
+    margin-left: 8px;
   }
+
 
   .kanan {
     height: 230px !important;
