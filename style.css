@@ -304,35 +304,40 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    width: 100%;
   }
 
   .qris-row {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
     width: 100%;
-    position: relative;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   .foto-kiri {
     height: 320px !important;
     object-fit: contain;
     margin-top: 20px;
-    margin-left: -10px;
+    margin-bottom: 0;
   }
 
   .qris-img {
     height: 200px !important;
     object-fit: contain;
-    margin: 0 10px;
+    margin: 0 auto;
+    display: block;
   }
 
   .foto-kanan {
     height: 200px !important;
     object-fit: contain;
-    margin-bottom: -30px;
-    margin-right: -10px;
+    margin-bottom: -20px;
+    margin-top: 30px;
   }
 }
 
