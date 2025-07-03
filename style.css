@@ -328,7 +328,7 @@ body {
   }
 
   .kanan {
-    height: 50px !important;
+    height: 150px !important;
     width: auto !important;
     transform: translateY(10px);
   }
