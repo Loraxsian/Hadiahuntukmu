@@ -299,6 +299,10 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
+  .only-pc {
+    display: none !important;
+  }
+
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
@@ -310,20 +314,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    gap: 15px;
     width: 100%;
     max-width: 100%;
-    gap: 20px;
   }
 
   .foto-kiri {
-    height: 250px !important;
+    height: 270px !important;
     width: auto !important;
     object-fit: contain !important;
     flex-shrink: 0;
   }
 
+  .qris-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
   .qris-img {
-    height: 200px !important;
+    height: 210px !important;
     object-fit: contain !important;
     margin: 0 auto !important;
     display: block;
@@ -333,6 +344,7 @@ body {
     height: 200px !important;
     object-fit: contain !important;
     transform: translateY(10px);
+    flex-shrink: 0;
   }
 }
 
