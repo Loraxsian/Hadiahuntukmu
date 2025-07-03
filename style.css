@@ -301,7 +301,7 @@ body {
 @media screen and (max-width: 768px) {
   .qris-wrapper:not(.hidden) {
     display: flex !important;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-top: 30px;
     width: 100%;
@@ -315,29 +315,30 @@ body {
     gap: 10px;
     width: 100%;
     max-width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
+  }
+
+  .foto-kiri,
+  .foto-kanan {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
   }
 
   .foto-kiri {
-    height: 320px !important;
-    object-fit: contain;
     margin-top: 20px;
-    margin-bottom: 0;
-  }
-
-  .qris-img {
-    height: 200px !important;
-    object-fit: contain;
-    margin: 0 auto;
-    display: block;
+    transform: translateY(10px); /* sedikit turun agar sejajar */
   }
 
   .foto-kanan {
-    height: 200px !important;
+    transform: translateY(20px); /* lebih turun agar sejajar */
+  }
+
+  .qris-img {
+    height: 200px;
+    width: auto;
     object-fit: contain;
-    margin-bottom: -20px;
-    margin-top: 30px;
+    margin: 0 10px;
+    display: block;
   }
 }
 
