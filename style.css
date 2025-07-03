@@ -314,44 +314,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    width: 100%;
-    max-width: 360px; /* Biar pas HP */
-    margin: 0 auto;
-    padding: 0 10px;
     gap: 10px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
-  .foto-kiri-wrapper,
-  .foto-kanan-wrapper {
+  .foto-kiri-wrapper, .foto-kanan-wrapper, .qris-img-wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-end;
   }
 
-  .foto-kiri {
-    height: 250px;
+  .foto-kiri, .foto-kanan {
+    height: 230px;
     object-fit: contain;
-  }
-
-  .foto-kanan {
-    height: 250px;
-    object-fit: contain;
-  }
-
-  .qris-img-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
   }
 
   .qris-img {
     height: 200px;
     object-fit: contain;
-    display: block;
+    margin: 0 auto;
   }
 }
+
 
 
 /* SEMBUNYIKAN FOTO PC SAAT DI HP */
