@@ -310,32 +310,30 @@ body {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
+    gap: 15px;
     width: 100%;
-    gap: 10px;
+  }
+
+  .foto-kiri-wrapper,
+  .qris-img-wrapper,
+  .foto-kanan-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
   }
 
   .foto-kiri {
-    height: 320px !important;
-    width: auto !important;
+    height: 330px !important;
+  }
+
+  .qris-img {
+    height: 200px !important;
+    margin: 0 10px;
   }
 
   .foto-kanan {
     height: 200px !important;
     margin-top: 30px;
-    width: auto !important;
-  }
-
-  .qris-img {
-    height: 200px !important;
-    width: auto !important;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .qris-img-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
