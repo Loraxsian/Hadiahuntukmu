@@ -325,7 +325,7 @@ body {
 
   .kiri {
     height: auto !important;
-    width: 140px !important;
+    width: 200px !important;
     object-fit: contain !important;
     margin-left: 5px;
   }
