@@ -299,49 +299,34 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
-  .qris-wrapper:not(.hidden) {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px;
-  }
-
   .qris-row {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
     width: 100%;
   }
 
-  .foto-kiri {
-    height: 320px !important; /* Dibesar lagi */
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  .qris-img {
-    height: 200px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    margin: 0 auto; /* Ini kunci agar QRIS tetap di tengah */
-    display: block;
-  }
-
-  .foto-kanan {
-    height: 200px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    margin-top: 30px; /* Turunkan posisinya sedikit */
-  }
-
-  /* Tambahan untuk memastikan wrapper rata tengah */
   .qris-img-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .qris-img {
+    height: 200px !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .foto-kiri {
+    height: 320px !important;
+  }
+
+  .foto-kanan {
+    height: 200px !important;
+    margin-top: 30px;
   }
 }
 
