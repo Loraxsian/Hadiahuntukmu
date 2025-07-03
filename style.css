@@ -327,7 +327,7 @@ body {
     height: 260px !important;
     flex: 0 0 auto;
     object-fit: contain !important;
-    transform: scale(1.1); /* tambahin ini buat membesar tanpa ubah ukuran aslinya */
+    transform: scale(1.8); /* tambahin ini buat membesar tanpa ubah ukuran aslinya */
   }
 
   .kanan {
