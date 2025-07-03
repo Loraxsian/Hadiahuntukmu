@@ -339,7 +339,6 @@ body {
   }
 }
 
-
 /* SEMBUNYIKAN FOTO PC SAAT DI HP */
 @media screen and (max-width: 768px) {
   .only-pc {
