@@ -309,14 +309,14 @@ body {
 
   .qris-row {
     display: flex;
-    flex-direction: row; /* Pastikan sejajar horizontal */
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center; /* Perbaiki agar QRIS di tengah */
     gap: 10px;
   }
 
   .foto-kiri {
-    height: 300px !important;
+    height: 320px !important; /* Dibesar dikit */
     width: auto !important;
     object-fit: contain !important;
   }
@@ -331,6 +331,7 @@ body {
     height: 200px !important;
     width: auto !important;
     object-fit: contain !important;
+    margin-top: 20px; /* Turunkan dikit */
   }
 }
 
