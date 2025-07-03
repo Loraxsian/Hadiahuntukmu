@@ -335,6 +335,33 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #qrisSection .qris-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  #qrisSection .foto-kiri {
+    height: 300px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    transform: scale(1.15); /* PAKSA membesar */
+  }
+
+  #qrisSection .qris-img {
+    height: 200px !important;
+    object-fit: contain !important;
+  }
+
+  #qrisSection .foto-kanan {
+    height: 200px !important;
+    object-fit: contain !important;
+    transform: translateY(10px);
+  }
+}
+
 
 /* SEMBUNYIKAN FOTO PC SAAT DI HP */
 @media screen and (max-width: 768px) {
