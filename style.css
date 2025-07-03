@@ -310,17 +310,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 15px;
+    width: 100%;
+    max-width: 100%;
+    gap: 20px;
   }
 
   .foto-kiri {
-    height: 230px !important;
+    height: 250px !important;
+    width: auto !important;
     object-fit: contain !important;
+    flex-shrink: 0;
   }
 
   .qris-img {
     height: 200px !important;
     object-fit: contain !important;
+    margin: 0 auto !important;
+    display: block;
   }
 
   .foto-kanan {
