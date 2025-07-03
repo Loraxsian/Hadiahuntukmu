@@ -299,36 +299,46 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
+  .qris-wrapper:not(.hidden) {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
   .qris-row {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: flex-end;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .qris-img-wrapper {
-    display: flex;
     justify-content: center;
-    align-items: center;
-  }
-
-  .qris-img {
-    height: 200px !important;
-    object-fit: contain !important;
-    display: block;
-    margin: 0 auto;
+    width: 100%;
+    gap: 10px;
   }
 
   .foto-kiri {
     height: 320px !important;
+    width: auto !important;
   }
 
   .foto-kanan {
     height: 200px !important;
     margin-top: 30px;
+    width: auto !important;
+  }
+
+  .qris-img {
+    height: 200px !important;
+    width: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .qris-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
+
 
 /* SEMBUNYIKAN FOTO PC SAAT DI HP */
 @media screen and (max-width: 768px) {
