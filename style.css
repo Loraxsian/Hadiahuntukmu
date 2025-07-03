@@ -311,12 +311,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center; /* Perbaiki agar QRIS di tengah */
+    align-items: flex-end;
     gap: 10px;
+    width: 100%;
   }
 
   .foto-kiri {
-    height: 320px !important; /* Dibesar dikit */
+    height: 320px !important; /* Dibesar lagi */
     width: auto !important;
     object-fit: contain !important;
   }
@@ -325,13 +326,22 @@ body {
     height: 200px !important;
     width: auto !important;
     object-fit: contain !important;
+    margin: 0 auto; /* Ini kunci agar QRIS tetap di tengah */
+    display: block;
   }
 
   .foto-kanan {
     height: 200px !important;
     width: auto !important;
     object-fit: contain !important;
-    margin-top: 20px; /* Turunkan dikit */
+    margin-top: 30px; /* Turunkan posisinya sedikit */
+  }
+
+  /* Tambahan untuk memastikan wrapper rata tengah */
+  .qris-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
