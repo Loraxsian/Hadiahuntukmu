@@ -324,10 +324,10 @@ body {
   }
 
   .kiri {
-    height: auto !important;
-    width: 500px !important;
+    height: 260px !important;
+    flex: 0 0 auto;
     object-fit: contain !important;
-    margin-left: 5px;
+    transform: scale(1.1); /* tambahin ini buat membesar tanpa ubah ukuran aslinya */
   }
 
   .kanan {
