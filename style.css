@@ -328,12 +328,12 @@ body {
     flex: 0 0 auto;
     object-fit: contain !important;
     transform: scale(1.8); /* tambahin ini buat membesar tanpa ubah ukuran aslinya */
-    margin-left: 20px; /* dorong ke kanan supaya dekat QRIS */
+    margin-left: 30px; /* dorong ke kanan supaya dekat QRIS */
   }
 
   .kanan {
     height: 230px !important;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
 
   .qris-img-main {
