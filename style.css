@@ -328,6 +328,7 @@ body {
     flex: 0 0 auto;
     object-fit: contain !important;
     transform: scale(1.8); /* tambahin ini buat membesar tanpa ubah ukuran aslinya */
+    margin-left: 20px; /* dorong ke kanan supaya dekat QRIS */
   }
 
   .kanan {
