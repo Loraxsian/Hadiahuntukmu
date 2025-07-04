@@ -343,13 +343,13 @@ body {
     left: 50%;
     transform: translateX(-50%);
     height: 210px;
-    z-index: 3;
+    z-index: 99;
   }
 }
 
 .kiri,
 .kanan {
-  z-index: 0;
+  z-index: 10;
   position: relative;
 }
 
