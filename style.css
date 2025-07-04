@@ -312,6 +312,7 @@ body {
 
   .qris-row {
     position: relative;
+    z-index: 1; /* tambahkan ini */
     justify-content: center;
     align-items: flex-end;
     padding: 0 20px;
@@ -342,9 +343,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
     height: 210px;
-    z-index: 2;
+    z-index: 3;
   }
 }
+
+.kiri,
+.kanan {
+  z-index: 0;
+  position: relative;
+}
+
 
 @media screen and (min-width: 769px) {
   .qris-img-main {
