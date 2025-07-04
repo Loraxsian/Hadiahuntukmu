@@ -307,12 +307,11 @@ body {
   }
 
   .qris-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: center;
-    align-items: flex-end;
+    align-items: end;
     gap: 12px;
-    width: fit-content;
-    margin: 0 auto;
   }
 
   .qris-img-side {
