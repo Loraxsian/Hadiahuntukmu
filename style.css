@@ -359,17 +359,18 @@ body {
     display: none !important;
   }
 }
+
+/* Sembunyikan foto samping di HP */
 @media screen and (max-width: 768px) {
-  .kiri,
-  .kanan {
+  .only-pc-pcside {
     display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
   }
-}
-@media screen and (max-width: 768px) {
-  img.kiri,
-  img.kanan {
+
+  .left-photo,
+  .right-photo {
     display: none !important;
+    visibility: hidden !important;
   }
 }
+
