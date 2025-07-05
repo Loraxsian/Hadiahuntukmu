@@ -375,3 +375,17 @@ body {
 }
 
 
+@media screen and (max-width: 768px) {
+  .only-pc,
+  .side-photo,
+  .left-photo,
+  .right-photo {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+    opacity: 0 !important;
+  }
+}
