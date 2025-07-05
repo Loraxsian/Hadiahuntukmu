@@ -52,23 +52,25 @@
     <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
   </div>
 
-  <!-- Script -->
-  <script src="js/particles.min.js"></script>
-  <script src="js/particle-script.js"></script>
-  <script src="js/fireworks.js"></script>
+  
   <script>
     document.getElementById("passwordForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const input = document.getElementById("passwordInput").value;
       if (input === "ultahprita") {
-        const qrisSection = document.getElementById("qrisSection");
-        qrisSection.classList.remove("hidden");
-        qrisSection.style.display = "flex"; // Tambahkan ini agar tampil di PC
-        document.getElementById("passwordForm").style.display = "none";
-      } else {
-        alert("Password salah ya :)");
-      }
-    });
-  </script>
+        const qrisWrapper = document.getElementById("qrisSection");
+        qrisWrapper.classList.remove("hidden");
+
+      // pastikan display flex tetap aktif
+      qrisWrapper.style.display = "flex";
+
+      // HILANGKAN FORM
+      document.getElementById("passwordForm").style.display = "none";
+    } else {
+      alert("Password salah ya :)");
+    }
+  });
+</script>
+
 </body>
 </html>
