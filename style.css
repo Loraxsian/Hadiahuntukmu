@@ -367,3 +367,9 @@ body {
     opacity: 0 !important;
   }
 }
+@media screen and (max-width: 768px) {
+  img.kiri,
+  img.kanan {
+    display: none !important;
+  }
+}
