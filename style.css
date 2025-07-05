@@ -324,7 +324,7 @@ body {
   width: auto;
   max-height: 250px;
   max-width: 100px;
-  object-fit: contain;
+  object-fit: cover;
   z-index: 2;
 }
 
@@ -341,7 +341,7 @@ body {
 
 .kiri {
   max-height: 300px; 
-  width: auto;
+  width: 230px;
   transform: translateY(10px);
 }
 
