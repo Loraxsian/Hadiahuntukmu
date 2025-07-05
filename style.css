@@ -353,6 +353,15 @@ body {
   position: relative;
 }
 
+.qris-img-main {
+  z-index: 1 !important;
+}
+
+.qris-img-side {
+  z-index: 2 !important;
+  position: relative;
+}
+
 
 @media screen and (min-width: 769px) {
   .qris-img-main {
@@ -367,57 +376,5 @@ body {
   .foto-kiri,
   .foto-kanan {
     display: none !important;
-  }
-}
-
-/* SEMBUNYIKAN FOTO PC SAAT DI HP */
-@media screen and (max-width: 768px) {
-  .only-pc {
-    display: none !important;
-  }
-
-  .qris-wrapper:not(.hidden) {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-  }
-
-  .qris-row {
-    position: relative;
-    z-index: 0;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0 20px;
-    width: 100%;
-    display: flex;
-  }
-
-  .qris-img-side {
-    max-width: 100px;
-    object-fit: contain;
-    flex: 0 0 auto;
-    z-index: 1;
-    position: relative;
-  }
-
-  .kiri {
-    height: 260px;
-    transform: scale(1.4);
-    margin-right: 8px;
-  }
-
-  .kanan {
-    height: 230px;
-    transform: translateY(20px);
-    margin-left: 8px;
-  }
-
-  .qris-img-main {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 210px;
-    z-index: 10;
   }
 }
