@@ -320,13 +320,10 @@ body {
 }
 
 .qris-img-side {
-  height: auto;
-  width: auto;
-  max-height: 250px;
-  max-width: 100px;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 2;
 }
+
 
 .qris-img-main {
   width: 180px;
@@ -340,14 +337,14 @@ body {
   }
 
 .kiri {
-  max-height: 300px; 
-  width: 230px;
+  height: 270px; /* Jangan pakai max-height di sini */
+  width: auto;
   transform: translateY(10px);
 }
 
 .kanan {
-  max-height: 250px;
-  width: 150px;
+  height: 250px;
+  width: auto;
   transform: translateY(20px);
 }
 
