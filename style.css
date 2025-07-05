@@ -344,16 +344,17 @@ body {
   height: 270px;
   width: auto;
   z-index: 5;
-  transform: translate(-20px, 20px); /* ← geser ke kiri 20px dan turun 20px */
+  transform: translateY(20px);
+  margin-left: 10px;  /* ← tambahkan ini */
 }
 
 .kanan {
   max-height: 250px;
   width: 200px;
   z-index: 5;
-  transform: translate(20px, 10px); /* ← geser ke kanan 20px dan naik 10px */
+  transform: translateY(10px);
+  margin-right: 10px;  /* ← tambahkan ini */
 }
-
 
 
 /* ← Tambahkan penutup ini untuk menutup max-width: 768px */
