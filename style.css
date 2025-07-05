@@ -325,24 +325,19 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
-  .foto-pc-hanya {
-    display: none !important;
-  }
-
-  .left-photo,
-  .right-photo,
-  .only-pc {
-    display: none !important;
-  }
-
-  /* Hilangkan display flex !important agar JS bisa mengontrol */
   .qris-wrapper {
+    /* Jangan kasih display flex langsung, biar JS yg ngontrol */
+    /* biarkan default display:none dari luar tetap berlaku */
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* display: none;  <- biar default tersembunyi */
   }
 
+  .qris-wrapper:not(.hidden) {
+    display: flex; /* Baru tampil kalau sudah tidak ada class hidden */
+  }
+
+  /* bagian lain tetap seperti semula */
   .qris-row {
     display: flex !important;
     justify-content: center;
@@ -365,5 +360,14 @@ body {
     margin: 0 auto !important;
     display: block !important;
   }
-}
 
+  .foto-pc-hanya {
+    display: none !important;
+  }
+
+  .left-photo,
+  .right-photo,
+  .only-pc {
+    display: none !important;
+  }
+}
