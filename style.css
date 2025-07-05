@@ -360,9 +360,9 @@ body {
   }
 }
 
-/* Sembunyikan foto samping di HP */
+
 @media screen and (max-width: 768px) {
-  .only-pc-pcside {
+  .only-pc {
     display: none !important;
     visibility: hidden !important;
   }
@@ -373,4 +373,5 @@ body {
     visibility: hidden !important;
   }
 }
+
 
