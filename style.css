@@ -346,7 +346,7 @@ body {
 }
 
 .kanan {
-  max-height: 250px;
+  max-height: 150px;
   width: auto;
   transform: translateY(20px);
 }
