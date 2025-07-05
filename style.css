@@ -348,7 +348,7 @@ body {
 
 .kanan {
   max-height: 250px;
-  width: 150px;
+  width: 200px;
   transform: translate( -10px, 10px ); /* ← geser ke kiri 10px, naik 10px */
 }
 
