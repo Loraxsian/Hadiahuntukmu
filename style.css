@@ -335,11 +335,12 @@ body {
     display: none !important;
   }
 
+  /* Hilangkan display flex !important agar JS bisa mengontrol */
   .qris-wrapper {
-    display: flex !important;
     justify-content: center;
     align-items: center;
     width: 100%;
+    /* display: none;  <- biar default tersembunyi */
   }
 
   .qris-row {
