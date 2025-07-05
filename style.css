@@ -329,7 +329,7 @@ body {
   width: 180px;
   height: auto;
   z-index: 10;
-  position: relative;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
