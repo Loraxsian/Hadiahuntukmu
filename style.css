@@ -340,23 +340,6 @@ body {
     display: block;
   }
 
-.kiri {
-  height: 270px;
-  width: auto;
-  z-index: 4;
-  transform: translateY(10px);
-}
-
-.kanan {
-  height: 250px;
-  width: 200px;
-  z-index: 4;
-  transform: translateY(10px);
-}
-
-
-
-
 /* ← Tambahkan penutup ini untuk menutup max-width: 768px */
 }
 
@@ -374,5 +357,13 @@ body {
   .foto-kiri,
   .foto-kanan {
     display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .kiri,
+  .kanan {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
