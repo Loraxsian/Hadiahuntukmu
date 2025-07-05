@@ -341,18 +341,21 @@ body {
   }
 
 .kiri {
-  height: 270px; /* Jangan pakai max-height di sini */
+  height: 270px;
   width: auto;
-   z-index: 5;
+  z-index: 5;
   transform: translateY(20px);
+  margin-left: 10px;  /* ← tambahkan ini */
 }
 
 .kanan {
   max-height: 250px;
   width: 200px;
-   z-index: 5;
-  transform: translate(10px); /* ← geser ke kiri 10px, naik 10px */
+  z-index: 5;
+  transform: translateY(10px);
+  margin-right: 10px;  /* ← tambahkan ini */
 }
+
 
 /* ← Tambahkan penutup ini untuk menutup max-width: 768px */
 }
