@@ -347,9 +347,9 @@ body {
 }
 
 .kanan {
-  height: 210px;
-  width: auto;
-  transform: translateY(20px);
+  max-height: 250px;
+  width: 150px;
+  transform: translate( -10px, 10px ); /* ← geser ke kiri 10px, naik 10px */
 }
 
 /* ← Tambahkan penutup ini untuk menutup max-width: 768px */
