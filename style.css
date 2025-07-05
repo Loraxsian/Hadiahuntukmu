@@ -329,13 +329,14 @@ body {
   }
 
   .qris-img-side {
-    width: 90px;
-    max-height: 120px;
-    height: auto;
+    width: 90px;              /* Tetapkan lebar */
+    height: 120px;            /* Tetapkan tinggi */
+    object-fit: contain;      /* Biar gambar tetap proporsional */
+    display: none;            /* Tetap disembunyikan dulu */
     position: relative;
     z-index: 4;
-    display: none; /* default disembunyikan */
   }
+
 
   .qris-wrapper:not(.hidden) .qris-img-side {
     display: block; /* muncul setelah password */
