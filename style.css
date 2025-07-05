@@ -329,8 +329,8 @@ body {
   }
 
   .qris-img-side {
-    width: 120px;              /* Tetapkan lebar */
-    height: 160px;            /* Tetapkan tinggi */
+    width: 200px;              /* Tetapkan lebar */
+    height: 250px;            /* Tetapkan tinggi */
     object-fit: contain;      /* Biar gambar tetap proporsional */
     display: none;            /* Tetap disembunyikan dulu */
     position: relative;
