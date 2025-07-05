@@ -296,11 +296,10 @@ body {
     margin-top: 20px;
   }
 }
-
-
-/* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
-@media screen and (max-width: 768px) {
-  .only-pc {
+/* Ini baru mulai media query untuk PC */
+@media screen and (min-width: 769px) {
+  .foto-kiri,
+  .foto-kanan {
     display: none !important;
   }
 
@@ -308,82 +307,55 @@ body {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
-.qris-row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 10px;
-  position: relative;
-  padding: 0 20px;
-}
-
-.qris-img-side {
-  object-fit: contain;
-  z-index: 2;
-}
-
-
-.qris-img-main {
-  width: 180px;
-  height: auto;
-  z-index: 10;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media screen and (max-width: 768px) {
-  .foto-pc-hanya {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  .only-pc {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  .left-photo,
-  .right-photo {
-    display: none !important;
-    visibility: hidden !important;
-  }
-}
-
-  .qris-wrapper:not(.hidden) .qris-img-side {
-    display: block;
-  }
-
-/* ← Tambahkan penutup ini untuk menutup max-width: 768px */
-}
-
-/* Ini baru mulai media query untuk PC */
-@media screen and (min-width: 769px) {
+  .qris-img,
   .qris-img-main {
+    width: 220px;
     max-width: 220px;
     height: auto;
+    margin-top: 20px;
   }
 
   .qris-row {
     display: none !important;
   }
+}
 
-  .foto-kiri,
-  .foto-kanan {
+/* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
+@media screen and (max-width: 768px) {
+  .left-photo,
+  .right-photo,
+  .only-pc,
+  .foto-pc-hanya {
     display: none !important;
+    visibility: hidden !important;
+  }
+
+  .qris-img-side {
+    display: none !important;
+  }
+
+  .qris-img-main {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .qris-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    gap: 10px;
+    position: relative;
   }
 }
 
 
 @media screen and (max-width: 768px) {
-  .only-pc {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
   .left-photo,
   .right-photo {
     display: none !important;
