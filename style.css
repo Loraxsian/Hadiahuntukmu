@@ -339,11 +339,11 @@ body {
 .kiri {
   height: 270px; /* Jangan pakai max-height di sini */
   width: auto;
-  transform: translateY(10px);
+  transform: translateY(20px);
 }
 
 .kanan {
-  height: 250px;
+  height: 210px;
   width: auto;
   transform: translateY(20px);
 }
