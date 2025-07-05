@@ -329,8 +329,8 @@ body {
   }
 
   .qris-img-side {
-    width: 90px;              /* Tetapkan lebar */
-    height: 120px;            /* Tetapkan tinggi */
+    width: 120px;              /* Tetapkan lebar */
+    height: 160px;            /* Tetapkan tinggi */
     object-fit: contain;      /* Biar gambar tetap proporsional */
     display: none;            /* Tetap disembunyikan dulu */
     position: relative;
@@ -351,6 +351,13 @@ body {
   }
 }
 
+.kiri {
+  width: 120px;       /* Lebih besar dari 90px */
+  height: 150px;      /* Lebih tinggi dari default */
+  object-fit: contain;
+  transform: translateY(10px);
+  z-index: 4;
+}
 
 @media screen and (min-width: 769px) {
   .qris-img-main {
