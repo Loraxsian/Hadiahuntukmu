@@ -351,7 +351,7 @@ body {
   max-height: 250px;
   width: 200px;
    z-index: 5;
-  transform: translate( -10px, 10px ); /* ← geser ke kiri 10px, naik 10px */
+  transform: translate(10px); /* ← geser ke kiri 10px, naik 10px */
 }
 
 /* ← Tambahkan penutup ini untuk menutup max-width: 768px */
