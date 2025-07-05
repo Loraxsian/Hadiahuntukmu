@@ -329,21 +329,23 @@ body {
   }
 
   .qris-img-side {
-    width: 200px;              /* Tetapkan lebar */
-    height: 250px;            /* Tetapkan tinggi */
-    object-fit: contain;      /* Biar gambar tetap proporsional */
-    display: none;            /* Tetap disembunyikan dulu */
+    width: 200px;
+    height: 250px;
+    object-fit: contain;
+    display: none;
     position: relative;
     z-index: 4;
   }
 
-
   .qris-wrapper:not(.hidden) .qris-img-side {
-    display: block; /* muncul setelah password */
+    display: block;
   }
 
   .kiri {
+    width: 200px !important;   /* <- tambah ini */
+    height: 250px !important;  /* <- tambah ini */
     transform: translateY(10px);
+    z-index: 4;
   }
 
   .kanan {
@@ -351,13 +353,6 @@ body {
   }
 }
 
-.kiri {
-  width: 120px;       /* Lebih besar dari 90px */
-  height: 150px;      /* Lebih tinggi dari default */
-  object-fit: contain;
-  transform: translateY(10px);
-  z-index: 4;
-}
 
 @media screen and (min-width: 769px) {
   .qris-img-main {
