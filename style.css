@@ -344,14 +344,18 @@ body {
   height: 270px;
   width: auto;
   z-index: 5;
-  transform: translate(-20px, 20px); /* ← geser ke kiri 20px dan turun 20px */
+  position: absolute;
+  left: 10px; /* Geser ke kanan sedikit dari tepi */
+  bottom: 0;
 }
 
 .kanan {
-  max-height: 250px;
+  height: 250px;
   width: 200px;
   z-index: 5;
-  transform: translate(20px, 10px); /* ← geser ke kanan 20px dan naik 10px */
+  position: absolute;
+  right: 10px; /* Geser ke kiri sedikit dari tepi */
+  bottom: 0;
 }
 
 
