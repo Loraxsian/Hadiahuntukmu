@@ -350,8 +350,9 @@ body {
 
   /* Ukuran QRIS utama di HP */
   .qris-img-main {
-    width: 140px !important;  /* kecilkan ukuran sesuai keinginan */
-    max-width: 140px !important;
+    justify-content: center;
+    width: 200px !important;  /* kecilkan ukuran sesuai keinginan */
+    max-width: 200px !important;
     height: auto !important;
     margin: 0 auto !important;
     display: block !important;
