@@ -342,8 +342,8 @@ body {
   }
 
   .kiri {
-    width: 200px !important;   /* <- tambah ini */
-    height: 250px !important;  /* <- tambah ini */
+    width: 250px !important;   /* <- tambah ini */
+    height: 300px !important;  /* <- tambah ini */
     transform: translateY(10px);
     z-index: 4;
   }
