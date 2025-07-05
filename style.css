@@ -310,23 +310,24 @@ body {
     margin-top: 30px;
   }
 
-  .qris-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 10px;
-    width: 100%;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-  }
+.qris-row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 20px;
+}
 
   .qris-img-main {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
     width: 180px;
     border-radius: 10px;
-    z-index: 5;
-    position: relative;
   }
+
 
   .qris-img-side {
     width: 200px;
@@ -341,16 +342,15 @@ body {
     display: block;
   }
 
-  .kiri {
-    width: 250px !important;   /* <- tambah ini */
-    height: 300px !important;  /* <- tambah ini */
-    transform: translateY(10px);
-    z-index: 4;
-  }
+.kiri {
+  height: 300px !important; /* atau lebih */
+  transform: translateY(10px);
+}
 
-  .kanan {
-    transform: translateY(20px);
-  }
+.kanan {
+  height: 250px;
+  transform: translateY(20px);
+}
 }
 
 
