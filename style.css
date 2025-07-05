@@ -299,10 +299,6 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
-  .only-pc {
-    display: none !important;
-  }
-
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
@@ -311,56 +307,39 @@ body {
   }
 
   .qris-row {
-    position: relative;
-    z-index: 1; /* tambahkan ini */
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0 20px;
-    width: 100%;
     display: flex;
-  }
-
-  .qris-img-side {
-    max-width: 100px;
-    object-fit: contain;
-    flex: 0 0 auto;
-  }
-
-  .kiri {
-    height: 260px;
-    transform: scale(1.4);
-    margin-right: 8px;
-  }
-
-  .kanan {
-    height: 230px;
-    transform: translateY(20px);
-    margin-left: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .qris-img-main {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 210px;
-    z-index: 99;
+    width: 180px;
+    border-radius: 10px;
+    z-index: 2;
+    position: relative;
+  }
+
+  .qris-img-side {
+    width: 90px;
+    height: auto;
+    z-index: 3;
+    position: relative;
+  }
+
+  .kiri {
+    transform: translateY(10px);
+  }
+
+  .kanan {
+    transform: translateY(20px);
   }
 }
 
-.kiri,
-.kanan {
-  z-index: 10;
-  position: relative;
-}
-
-.qris-img-main {
-  z-index: 1 !important;
-}
-
-.qris-img-side {
-  z-index: 2 !important;
-  position: relative;
-}
 
 
 @media screen and (min-width: 769px) {
