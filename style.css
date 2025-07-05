@@ -299,6 +299,10 @@ body {
 
 /* ==== PERBAIKAN TAMPILAN HP UNTUK QRIS & FOTO SAMPING ==== */
 @media screen and (max-width: 768px) {
+  .only-pc {
+    display: none !important;
+  }
+
   .qris-wrapper:not(.hidden) {
     display: flex !important;
     justify-content: center;
@@ -309,7 +313,7 @@ body {
   .qris-row {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
     width: 100%;
     padding: 0 20px;
@@ -320,15 +324,21 @@ body {
   .qris-img-main {
     width: 180px;
     border-radius: 10px;
-    z-index: 2;
+    z-index: 5;
     position: relative;
   }
 
   .qris-img-side {
     width: 90px;
+    max-height: 120px;
     height: auto;
-    z-index: 3;
     position: relative;
+    z-index: 4;
+    display: none; /* default disembunyikan */
+  }
+
+  .qris-wrapper:not(.hidden) .qris-img-side {
+    display: block; /* muncul setelah password */
   }
 
   .kiri {
