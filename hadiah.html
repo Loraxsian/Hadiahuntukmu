@@ -1,75 +1,696 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hadiah Untukmu</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/particle-style.css" />
+  <title>Hadiah Untukmu, Laura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS VARIABLES (sama dengan index.html)
+    ============================================================ */
+    :root {
+      --rose:        #e8a0b0;
+      --rose-deep:   #c0687e;
+      --rose-dim:    rgba(232, 160, 176, 0.15);
+      --rose-glow:   rgba(192, 104, 126, 0.35);
+      --dark:        #0a0608;
+      --dark-mid:    #130a0d;
+      --dark-card:   rgba(255,255,255,0.04);
+      --dark-border: rgba(232,160,176,0.18);
+      --text-main:   #f0dde3;
+      --text-dim:    rgba(240,221,227,0.55);
+      --font-display: 'Pinyon Script', cursive;
+      --font-serif:   'Cormorant Garamond', serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       PARTICLES
+    ============================================================ */
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       FIREWORKS
+    ============================================================ */
+    #fireworksCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 520px;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
+
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(192,104,126,0.1) 0%, transparent 70%);
+      top: -80px; left: -80px;
+    }
+    .orb-2 {
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(232,160,176,0.07) 0%, transparent 70%);
+      bottom: -60px; right: -60px;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 5rem);
+      color: var(--rose);
+      line-height: 1;
+      text-shadow: 0 0 50px var(--rose-glow);
+      margin-bottom: 8px;
+    }
+
+    .page-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-bottom: 48px;
+    }
+
+    .deco-line {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+      margin: 0 auto 48px;
+    }
+
+    /* ============================================================
+       STATE PANELS (PIN / LOADING / RESULT / FALLBACK)
+    ============================================================ */
+    .panel {
+      display: none;
+      animation: fadeUp 0.5s ease;
+    }
+    .panel.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       PIN PANEL
+    ============================================================ */
+    .pin-label {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    .pin-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .pin-digit {
+      width: 56px;
+      height: 68px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      color: var(--rose);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      caret-color: var(--rose);
+      /* Sembunyikan teks asli, tampilkan dot */
+      -webkit-text-security: disc;
+    }
+    .pin-digit:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px var(--rose-dim);
+    }
+    .pin-digit.filled {
+      border-color: var(--rose-deep);
+    }
+    .pin-digit.error {
+      border-color: #e87a7a;
+      box-shadow: 0 0 0 3px rgba(232,122,122,0.15);
+      animation: shake 0.4s ease;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-6px); }
+      40%       { transform: translateX(6px); }
+      60%       { transform: translateX(-4px); }
+      80%       { transform: translateX(4px); }
+    }
+
+    .btn-klaim {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--rose-deep), #8b3a52);
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(192,104,126,0.35);
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+    }
+    .btn-klaim:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(192,104,126,0.55);
+    }
+    .btn-klaim:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-msg {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: #e87a7a;
+      font-family: var(--font-serif);
+      font-style: italic;
+      min-height: 1.2em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .error-msg.show { opacity: 1; }
+
+    /* ============================================================
+       LOADING PANEL
+    ============================================================ */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 24px 0;
+    }
+    .loading-dots span {
+      width: 8px; height: 8px;
+      background: var(--rose);
+      border-radius: 50%;
+      animation: dot-bounce 1.2s ease-in-out infinite;
+    }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dot-bounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40%           { transform: scale(1);   opacity: 1; }
+    }
+    .loading-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1rem;
+    }
+
+    /* ============================================================
+       QRIS PANEL
+    ============================================================ */
+    .qris-reveal {
+      animation: fadeUp 0.8s ease;
+    }
+
+    .qris-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .qris-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      color: var(--rose);
+      text-shadow: 0 0 30px var(--rose-glow);
+      margin-bottom: 8px;
+    }
+
+    .qris-desc {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    .qris-frame {
+      display: inline-block;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 50px rgba(232,160,176,0.25), 0 20px 60px rgba(0,0,0,0.5);
+      margin-bottom: 32px;
+    }
+
+    #qrisImg {
+      display: block;
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .qris-note {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    /* ============================================================
+       FALLBACK PANEL
+    ============================================================ */
+    .fallback-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .fallback-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3rem);
+      color: var(--rose);
+      text-shadow: 0 0 30px var(--rose-glow);
+      margin-bottom: 12px;
+    }
+    .fallback-desc {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 360px;
+      margin: 0 auto 32px;
+    }
+    .btn-retry {
+      background: none;
+      border: 1px solid var(--dark-border);
+      color: var(--text-dim);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-retry:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* ============================================================
+       BOTTOM NAV
+    ============================================================ */
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--dark-border);
+      color: var(--text-dim);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-nav:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 480px) {
+      .pin-digit { width: 48px; height: 60px; font-size: 1.6rem; }
+      .pin-inputs { gap: 10px; }
+      #qrisImg { width: 180px; height: 180px; }
+    }
+  </style>
 </head>
 <body>
-  <div id="particles-js"></div>
 
-  <section class="hadiah" style="margin-top: 100px;">
-    <h2 class="judul-utama">🎀 Ini hadiah dariku untukmu, Laura 🎀</h2>
-    <p class="ucapan-hadiah">Mungkin tak seberapa... tapi semoga bermanfaat ya 🎀</p>
-
-    <!-- QRIS & FOTO KIRI-KANAN Khusus HP (muncul setelah password benar) -->
-   <div id="qrisSection" class="qris-wrapper hidden">
-    <div class="qris-row">
-      <img src="galeri/laura_leftstyle.png" class="qris-img-side kiri" alt="Laura Kiri">
-      <img src="img/qris.png" class="qris-img-main" alt="QRIS Hadiah">
-      <img src="galeri/laura_rightstyle-preview.png" class="qris-img-side kanan" alt="Laura Kanan">
-    </div>
-    <img src="img/qris.png" class="qris-img only-pc" alt="QRIS Hadiah PC">
-</div>
-
-
-    <!-- Form Password -->
-    <div class="klaim-container">
-      <form id="passwordForm">
-        <input type="password" id="passwordInput" placeholder="Masukkan password..." required />
-        <button type="submit">Klaim</button>
-      </form>
-    </div>
-
-    <!-- Tombol Aksi -->
-    <div style="margin-top: 30px; display: flex; justify-content: space-between; max-width: 400px; margin-inline: auto;">
-      <button onclick="window.location.href='index.html'" style="padding: 10px 20px; border-radius: 10px; background-color: #555; color: white; border: none; cursor: pointer;">
-        ← Kembali
-      </button>
-      <button onclick="window.location.href='https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe'" style="padding: 10px 20px; border-radius: 10px; background-color: #00c2cb; color: white; border: none; cursor: pointer;">
-        🎵 Semoga Suka
-      </button>
-    </div>
-  </section>
-
+  <canvas id="particleCanvas"></canvas>
   <canvas id="fireworksCanvas"></canvas>
 
-  <!-- Foto kiri & kanan untuk versi PC -->
-  <div class="foto-pc-hanya"> <!-- Ini yang disembunyikan di media query -->
-    <img src="galeri/laura_leftstyle.png" class="side-photo left-photo" alt="Laura Kiri">
-    <img src="galeri/laura_rightstyle-preview.png" class="side-photo right-photo" alt="Laura Kanan">
-  </div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
 
+  <div class="page-wrap">
 
-  <!-- Script -->
-  <script src="js/particles.min.js"></script>
-  <script src="js/particle-script.js"></script>
-  <script src="js/fireworks.js"></script>
+    <!-- HEADER -->
+    <span class="eyebrow">untuk Laura, dengan sayang</span>
+    <h1 class="page-title">Sebuah Hadiah</h1>
+    <p class="page-sub">Mungkin tak seberapa, tapi dari hati 🎀</p>
+    <div class="deco-line"></div>
+
+    <!-- PANEL: PIN INPUT -->
+    <div class="panel active" id="panelPin">
+      <p class="pin-label">Masukkan PIN untuk membuka hadiahmu</p>
+      <div class="pin-inputs" id="pinInputs">
+        <input class="pin-digit" type="tel" maxlength="1" data-idx="0" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input class="pin-digit" type="tel" maxlength="1" data-idx="1" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input class="pin-digit" type="tel" maxlength="1" data-idx="2" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+        <input class="pin-digit" type="tel" maxlength="1" data-idx="3" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      </div>
+      <button class="btn-klaim" id="btnKlaim" disabled>Buka Hadiah 🎁</button>
+      <p class="error-msg" id="errorMsg">PIN salah. Coba lagi ya 🌸</p>
+    </div>
+
+    <!-- PANEL: LOADING -->
+    <div class="panel" id="panelLoading">
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="loading-text">Sedang membuka hadiah...</p>
+    </div>
+
+    <!-- PANEL: QRIS REVEAL -->
+    <div class="panel" id="panelQris">
+      <div class="qris-reveal">
+        <span class="qris-eyebrow">hadiahmu sudah siap</span>
+        <h2 class="qris-title">Ini Untukmu 🎀</h2>
+        <p class="qris-desc">Scan QRIS di bawah ini ya</p>
+        <div class="qris-frame">
+          <img id="qrisImg" src="" alt="QRIS Hadiah">
+        </div>
+        <p class="qris-note">Scan menggunakan aplikasi bank atau e-wallet apapun</p>
+      </div>
+    </div>
+
+    <!-- PANEL: FALLBACK (backend mati) -->
+    <div class="panel" id="panelFallback">
+      <span class="fallback-icon">🎀</span>
+      <h2 class="fallback-title">Hadiah Sedang Disiapkan</h2>
+      <p class="fallback-desc">
+        Hadiahnya masih dalam perjalanan untukmu.<br>
+        Coba lagi sebentar ya, Laura 🌸
+      </p>
+      <button class="btn-retry" id="btnRetry">Coba Lagi</button>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+      <a href="index.html" class="btn-nav">← Kembali</a>
+      <a href="https://youtu.be/ChukpOHfAI8?si=RAij2TB27Gvq7Ehe" target="_blank" class="btn-nav">🎵 Semoga Suka</a>
+    </div>
+
+  </div><!-- end .page-wrap -->
+
   <script>
-    document.getElementById("passwordForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const input = document.getElementById("passwordInput").value;
-      if (input === "ultahprita") {
-        const qrisSection = document.getElementById("qrisSection");
-        qrisSection.classList.remove("hidden");
-        qrisSection.style.display = "flex"; // Tambahkan ini agar tampil di PC
-        document.getElementById("passwordForm").style.display = "none";
-      } else {
-        alert("Password salah ya :)");
+  /* ============================================================
+     CONFIG — ganti sesuai domain backend kamu
+  ============================================================ */
+  const API_URL = 'https://api.hadiahuntukmu.my.id/verify';
+
+  /* ============================================================
+     PARTICLES
+  ============================================================ */
+  (function() {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    function rand(a, b) { return Math.random() * (b - a) + a; }
+    function mkP() { return { x: rand(0,W), y: rand(-20,H), r: rand(0.5,2), speed: rand(0.2,0.6), opacity: rand(0.1,0.45), drift: rand(-0.15,0.15) }; }
+    for (let i = 0; i < 60; i++) particles.push(mkP());
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      for (let p of particles) {
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(232,160,176,${p.opacity})`; ctx.fill();
+        p.y += p.speed; p.x += p.drift;
+        p.opacity += rand(-0.004, 0.004);
+        p.opacity = Math.max(0.05, Math.min(0.5, p.opacity));
+        if (p.y > H+10) Object.assign(p, mkP(), {y:-10});
+        if (p.x < -10 || p.x > W+10) Object.assign(p, mkP());
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* ============================================================
+     FIREWORKS
+  ============================================================ */
+  (function() {
+    const canvas = document.getElementById('fireworksCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], running = false;
+
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+
+    function burst() {
+      const x = Math.random() * W;
+      const y = Math.random() * H * 0.6;
+      const colors = ['#e8a0b0','#f7dde4','#c0687e','#ffffff','#ffb6c8'];
+      for (let i = 0; i < 80; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 5 + 1.5;
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          r: Math.random() * 2 + 1,
+          alpha: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function loop() {
+      if (!running) return;
+      ctx.clearRect(0, 0, W, H);
+      particles = particles.filter(p => p.alpha > 0.05);
+      for (let p of particles) {
+        p.x += p.vx; p.y += p.vy;
+        p.vy += 0.05; // gravity
+        p.alpha *= 0.96;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = p.color.replace(')', `,${p.alpha})`).replace('rgb','rgba').replace('#', '');
+        // pakai globalAlpha lebih simpel:
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+      requestAnimationFrame(loop);
+    }
+
+    let burstInterval;
+    window.startFireworks = function() {
+      running = true;
+      burst(); burst();
+      burstInterval = setInterval(() => { burst(); }, 800);
+      loop();
+      setTimeout(() => {
+        clearInterval(burstInterval);
+        running = false;
+      }, 6000);
+    };
+  })();
+
+  /* ============================================================
+     PIN INPUT LOGIC
+  ============================================================ */
+  const digits   = Array.from(document.querySelectorAll('.pin-digit'));
+  const btnKlaim = document.getElementById('btnKlaim');
+  const errorMsg = document.getElementById('errorMsg');
+
+  function getPin() { return digits.map(d => d.value).join(''); }
+  function checkFull() {
+    const full = digits.every(d => d.value.length === 1);
+    btnKlaim.disabled = !full;
+  }
+
+  digits.forEach((d, i) => {
+    d.addEventListener('input', () => {
+      // Hanya angka
+      d.value = d.value.replace(/\D/g, '').slice(-1);
+      d.classList.toggle('filled', d.value.length === 1);
+      // Pindah ke digit berikutnya
+      if (d.value && i < digits.length - 1) digits[i + 1].focus();
+      checkFull();
+      errorMsg.classList.remove('show');
+    });
+
+    d.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !d.value && i > 0) {
+        digits[i - 1].value = '';
+        digits[i - 1].classList.remove('filled');
+        digits[i - 1].focus();
+        checkFull();
       }
     });
+
+    // Paste PIN sekaligus
+    d.addEventListener('paste', e => {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'');
+      pasted.split('').slice(0,4).forEach((ch, idx) => {
+        if (digits[idx]) {
+          digits[idx].value = ch;
+          digits[idx].classList.add('filled');
+        }
+      });
+      checkFull();
+    });
+  });
+
+  /* ============================================================
+     PANEL SWITCHER
+  ============================================================ */
+  function showPanel(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  /* ============================================================
+     VERIFY PIN — API CALL
+  ============================================================ */
+  async function verifyPin(pin) {
+    showPanel('panelLoading');
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin }),
+        signal: AbortSignal.timeout(8000) // 8 detik timeout
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.qris) {
+          // PIN benar — tampilkan QRIS
+          document.getElementById('qrisImg').src = data.qris;
+          showPanel('panelQris');
+          setTimeout(() => startFireworks(), 300);
+        } else {
+          // PIN salah
+          showPinError();
+        }
+      } else if (res.status === 401) {
+        // PIN salah dari backend
+        showPinError();
+      } else {
+        // Error server lainnya → fallback
+        showPanel('panelFallback');
+      }
+
+    } catch (err) {
+      // Network error / backend mati / timeout → fallback graceful
+      showPanel('panelFallback');
+    }
+  }
+
+  function showPinError() {
+    showPanel('panelPin');
+    digits.forEach(d => d.classList.add('error'));
+    errorMsg.classList.add('show');
+    setTimeout(() => {
+      digits.forEach(d => { d.classList.remove('error'); d.value = ''; d.classList.remove('filled'); });
+      btnKlaim.disabled = true;
+      digits[0].focus();
+    }, 800);
+  }
+
+  btnKlaim.addEventListener('click', () => {
+    const pin = getPin();
+    if (pin.length === 4) verifyPin(pin);
+  });
+
+  // Submit dengan Enter
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !btnKlaim.disabled) btnKlaim.click();
+  });
+
+  /* ============================================================
+     RETRY BUTTON
+  ============================================================ */
+  document.getElementById('btnRetry').addEventListener('click', () => {
+    showPanel('panelPin');
+    digits.forEach(d => { d.value = ''; d.classList.remove('filled', 'error'); });
+    btnKlaim.disabled = true;
+    digits[0].focus();
+  });
+
+  // Fokus ke digit pertama saat load
+  window.addEventListener('load', () => setTimeout(() => digits[0].focus(), 300));
   </script>
+
 </body>
 </html>
