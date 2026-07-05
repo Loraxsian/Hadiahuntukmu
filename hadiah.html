@@ -264,13 +264,13 @@
     }
 
     /* ============================================================
-       QRIS PANEL
+       FORM PANEL
     ============================================================ */
-    .qris-reveal {
+    .form-reveal {
       animation: fadeUp 0.8s ease;
     }
 
-    .qris-eyebrow {
+    .form-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
@@ -279,7 +279,7 @@
       display: block;
     }
 
-    .qris-title {
+    .form-title {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 7vw, 3.5rem);
       color: var(--rose);
@@ -287,7 +287,7 @@
       margin-bottom: 8px;
     }
 
-    .qris-desc {
+    .form-desc {
       font-family: var(--font-serif);
       font-style: italic;
       color: var(--text-dim);
@@ -295,28 +295,62 @@
       font-size: 1rem;
     }
 
-    .qris-frame {
-      display: inline-block;
-      padding: 16px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 50px rgba(232,160,176,0.25), 0 20px 60px rgba(0,0,0,0.5);
-      margin-bottom: 32px;
+    .form-group {
+      text-align: left;
+      margin-bottom: 20px;
     }
 
-    #qrisImg {
+    .form-group label {
       display: block;
-      width: 220px;
-      height: 220px;
-      object-fit: contain;
-      border-radius: 4px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
     }
 
-    .qris-note {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      letter-spacing: 0.05em;
-      margin-bottom: 32px;
+    .form-group textarea {
+      width: 100%;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 10px;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 14px;
+      resize: none;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px var(--rose-dim);
+    }
+    #alamat { height: 80px; }
+    #catatan { height: 60px; }
+
+    /* ============================================================
+       THANK YOU PANEL
+    ============================================================ */
+    .thanks-reveal {
+      animation: fadeUp 0.8s ease;
+    }
+    .heart-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      animation: heartbeat 1.6s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.15); }
+    }
+    .thanks-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-main);
     }
 
     /* ============================================================
@@ -394,7 +428,6 @@
     @media (max-width: 480px) {
       .pin-digit { width: 48px; height: 60px; font-size: 1.6rem; }
       .pin-inputs { gap: 10px; }
-      #qrisImg { width: 180px; height: 180px; }
     }
   </style>
 </head>
@@ -435,16 +468,33 @@
       <p class="loading-text">Sedang membuka hadiah...</p>
     </div>
 
-    <!-- PANEL: QRIS REVEAL -->
-    <div class="panel" id="panelQris">
-      <div class="qris-reveal">
-        <span class="qris-eyebrow">hadiahmu sudah siap</span>
-        <h2 class="qris-title">Ini Untukmu 🎀</h2>
-        <p class="qris-desc">Scan QRIS di bawah ini ya</p>
-        <div class="qris-frame">
-          <img id="qrisImg" src="" alt="QRIS Hadiah">
+    <!-- PANEL: FORM ALAMAT -->
+    <div class="panel" id="panelForm">
+      <div class="form-reveal">
+        <span class="form-eyebrow">hadiahmu sudah siap</span>
+        <h2 class="form-title">Ini Untukmu 🎀</h2>
+        <p class="form-desc">Isi dulu ya, biar hadiahnya bisa sampai ke kamu</p>
+
+        <div class="form-group">
+          <label for="alamat">Alamat Penerima</label>
+          <textarea id="alamat" placeholder="Tulis alamat lengkap kamu di sini..."></textarea>
         </div>
-        <p class="qris-note">Scan menggunakan aplikasi bank atau e-wallet apapun</p>
+
+        <div class="form-group">
+          <label for="catatan">Catatan (opsional)</label>
+          <textarea id="catatan" placeholder="Ada pesan buat aku?"></textarea>
+        </div>
+
+        <button class="btn-klaim" id="btnKirimForm">Kirim 🎁</button>
+        <p class="error-msg" id="formErrorMsg">Alamat wajib diisi ya 🙏</p>
+      </div>
+    </div>
+
+    <!-- PANEL: TERIMA KASIH -->
+    <div class="panel" id="panelThanks">
+      <div class="thanks-reveal">
+        <span class="heart-icon">❤️</span>
+        <p class="thanks-text">Terima kasih ya, Laura.<br>Aku sudah menerima pesanmu.</p>
       </div>
     </div>
 
@@ -471,7 +521,8 @@
   /* ============================================================
      CONFIG — ganti sesuai domain backend kamu
   ============================================================ */
-  const API_URL = 'https://api.hadiahuntukmu.my.id/verify';
+  const API_URL_VERIFY = 'https://api.hadiahuntukmu.my.id/verify';
+  const API_URL_KIRIM  = 'https://api.hadiahuntukmu.my.id/api/kirim-hadiah';
 
   /* ============================================================
      PARTICLES
@@ -540,8 +591,6 @@
         p.vy += 0.05; // gravity
         p.alpha *= 0.96;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fillStyle = p.color.replace(')', `,${p.alpha})`).replace('rgb','rgba').replace('#', '');
-        // pakai globalAlpha lebih simpel:
         ctx.globalAlpha = p.alpha;
         ctx.fillStyle = p.color;
         ctx.fill();
@@ -625,7 +674,7 @@
     showPanel('panelLoading');
 
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(API_URL_VERIFY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pin }),
@@ -634,10 +683,9 @@
 
       if (res.ok) {
         const data = await res.json();
-        if (data.success && data.qris) {
-          // PIN benar — tampilkan QRIS
-          document.getElementById('qrisImg').src = data.qris;
-          showPanel('panelQris');
+        if (data.success) {
+          // PIN benar — tampilkan form alamat
+          showPanel('panelForm');
           setTimeout(() => startFireworks(), 300);
         } else {
           // PIN salah
@@ -673,9 +721,56 @@
     if (pin.length === 4) verifyPin(pin);
   });
 
-  // Submit dengan Enter
+  // Submit dengan Enter (khusus panel PIN)
   document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !btnKlaim.disabled) btnKlaim.click();
+    if (e.key === 'Enter' && !btnKlaim.disabled && document.getElementById('panelPin').classList.contains('active')) {
+      btnKlaim.click();
+    }
+  });
+
+  /* ============================================================
+     KIRIM FORM ALAMAT
+  ============================================================ */
+  const btnKirimForm = document.getElementById('btnKirimForm');
+  const formErrorMsg = document.getElementById('formErrorMsg');
+
+  btnKirimForm.addEventListener('click', async () => {
+    const alamat = document.getElementById('alamat').value.trim();
+    const catatan = document.getElementById('catatan').value.trim();
+
+    if (!alamat) {
+      formErrorMsg.textContent = 'Alamat wajib diisi ya 🙏';
+      formErrorMsg.classList.add('show');
+      return;
+    }
+    formErrorMsg.classList.remove('show');
+
+    btnKirimForm.disabled = true;
+    btnKirimForm.textContent = 'Mengirim...';
+
+    try {
+      const res = await fetch(API_URL_KIRIM, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ alamat, catatan }),
+        signal: AbortSignal.timeout(8000)
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        showPanel('panelThanks');
+      } else {
+        formErrorMsg.textContent = 'Gagal mengirim, coba lagi ya.';
+        formErrorMsg.classList.add('show');
+        btnKirimForm.disabled = false;
+        btnKirimForm.textContent = 'Kirim 🎁';
+      }
+    } catch (err) {
+      formErrorMsg.textContent = 'Terjadi kesalahan koneksi.';
+      formErrorMsg.classList.add('show');
+      btnKirimForm.disabled = false;
+      btnKirimForm.textContent = 'Kirim 🎁';
+    }
   });
 
   /* ============================================================
